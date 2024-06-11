@@ -97,7 +97,7 @@ const SnippetForm = () => {
               {/* button erase */}
               <ButtonSecondary
                 type='button'
-                className={`btn-sm 400px-custom:btn-md w-[48px] ${loading || input.body.trim().length === 0 ? 'btn-disabled' : ''}`} 
+                className={`btn-sm 400px-custom:btn-md w-[48px] ${loading || input.body?.trim().length === 0 ? 'btn-disabled' : ''}`} 
                 onClick={() => handleReset(true)}
               >
                 <FontAwesomeIcon className='text-xl' icon={faEraser} />
