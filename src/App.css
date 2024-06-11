@@ -1,0 +1,21 @@
+/* ! override the font size of the editor and preview. if this custom font is enabled the '.w-md-editor-text' and 'commands.table' must be disabled, read more below. */
+body .w-md-editor-text-pre > code,
+body .w-md-editor-text-input {
+  font-size: 18px !important;
+  line-height: 20px !important;
+}
+
+body .wmde-markdown {
+  font-size: 18px !important;
+}
+
+/* TODO: by default the 'line-height' for this class is 18px and this causes the 'line-height' to de-sync between the layers of the editor when 'commands.table' library comand is used to create MD table template. The custom value fixes the problem only if the font size is set to default; if the font size is increased, the 'commands.table' pastes the MD table syntax in the default font size causing line-height desync in multiple layers of the editor. this is difficult to address, for now either use default font size + 'commands.table' or disable 'commands.table' if custom font size is to be used. */
+/* .w-md-editor-text {
+  line-height: 20px !important;
+} */
+
+/* ! deal with the layout shift caused by y-scrollbar. the solution causes y-scrollbar to be always visible, but it is reliable */
+html {
+  overflow-y: scroll !important;
+  scrollbar-width: none !important;
+}

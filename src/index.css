@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ! customize tailwind base layer to address problem with missing list styles in markdown editor preview */
+/* https://github.com/JedWatson/react-md-editor/issues/19 */
+@layer base {
+  ol {
+    @apply list-decimal;
+  }
+  ul {
+    @apply list-disc;
+  }
+  ul ul {
+    @apply list-[circle];
+  }
+  ul ul ul {
+    @apply list-[square];
+  }
+  ol ol {
+    @apply list-[lower-roman];
+  }
+  ol ol ul {
+    @apply list-[square];
+  }
+  ol ul {
+    @apply list-[circle];
+  }
+  ol ul ul {
+    @apply list-[square];
+  }
+}
