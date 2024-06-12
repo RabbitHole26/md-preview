@@ -1,20 +1,23 @@
 import { useEffect, useRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash, faRightToBracket, faPen, faEye } from "@fortawesome/free-solid-svg-icons"
+import { light } from "../../store/theme-context/theme-aliases-map"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import ButtonAccent from '../buttons/ButtonAccent'
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
+import useThemeContext from "../../store/theme-context/useThemeContext"
+import usePreviewContext from "../../store/preview-context/usePreviewContext"
 import useHandleUse from "../dashboard-hooks/useHandleUse"
 import useHandleRename from "../dashboard-hooks/useHandleRename"
 import useHandleRemove from "../dashboard-hooks/useHandleRemove"
 import useHandlePreview from "../dashboard-hooks/useHandlePreview"
-import usePreviewContext from "../../store/preview-context/usePreviewContext"
 import MarkdownPreview from '../markdown-preview/MarkdownPreview'
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()
   const {selectedSnippet} = useLocalStorageContext()
+  const {theme} = useThemeContext()
   const {handleUse} = useHandleUse()
   const {handlePreview} = useHandlePreview()
   const {snippetPreview} = usePreviewContext()
@@ -42,7 +45,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
       <div className="flex flex-col md:flex-row md:min-h-[72px] gap-2 p-5 items-center w-full overflow-hidden">
 
         {/* snippet title */}
-        <p className="flex justify-center w-full">
+        <p className={`flex justify-center w-full text-lg tracking-wider ${theme === light ? 'snippet-title-shadow-light' : 'snippet-title-shadow-dark'}`}>
           {snippet.title}
         </p>
 
