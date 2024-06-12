@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import setInitialState from "./set-initial-state";
 import useLocalStorage from "./useLocalStorage";
+import markdownSample from "./markdown-sample";
 
 const LocalStorageContext = createContext()
 
@@ -9,7 +10,7 @@ const LocalStorageProvider = ({children, initialThemeValueHTML}) => {
   // * 'key' (saved in local storage)
   // * 'fallback' (any value that should be set if there is nothing in local storage)
   const [input, setInput] = useState(
-    setInitialState('input', '')
+    setInitialState('input', {body: markdownSample})
   )
   const [theme, setTheme] = useState(
     setInitialState('theme', initialThemeValueHTML)
