@@ -4,7 +4,7 @@ import { commandsDropdown, commandsExpanded, extraCommands } from './EditorComma
 import { light } from '../../store/theme-context/theme-aliases-map'
 import useLocalStorageContext from '../../store/localstorage-context/useLocalStorageContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
-import MDEditor from '@uiw/react-md-editor/nohighlight'
+import MDEditor from '@uiw/react-md-editor'
 import rehypeSanitize from "rehype-sanitize"
 
 const MarkdownInput = () => {

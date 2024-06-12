@@ -1,11 +1,14 @@
-/* ! override the font size of the MD editor */
-body .w-md-editor-text-pre > code,
-body .w-md-editor-text-input {
+/* ! override the CSS of the MDEditor editor */
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
   font-size: 18px !important;
+  line-height: 20px !important;
 }
 
-/* ! override the font size of the MD preview */
-body .wmde-markdown {
+/* ! '.table' overrides Prism CSS syntax highlight classes causing styling issues for MD table syntax */
+/* ! '.wde-mardown' overrides CSS of MDEditor preview */
+.table,
+.wmde-markdown {
   font-size: 18px !important;
 }
 
@@ -15,6 +18,7 @@ html {
   scrollbar-width: none !important;
 }
 
+/* ! add custom shadows to ListItem 'snippet.title' */
 .snippet-title-shadow-light {
   text-shadow: 
     1px 1px 2px rgba(239, 159, 188, 1),
