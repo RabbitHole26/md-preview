@@ -1,3 +1,8 @@
+/* ! if height is less than 100% there are issues in Firefox browser */
+.w-md-editor-text {
+  height: 100% !important;
+}
+
 /* ! override the CSS of the MDEditor editor */
 .w-md-editor-text-pre > code,
 .w-md-editor-text-input {
@@ -5,14 +10,15 @@
   line-height: 20px !important;
 }
 
-/* ! '.table' overrides Prism CSS syntax highlight classes causing styling issues for MD table syntax */
-/* ! '.wde-mardown' overrides CSS of MDEditor preview */
+/* ! '.table' overrides Prism CSS classes created when highlight MD syntax, this is causing styling issues if font-size is default */
+/* ! '.wde-mardown' overrides CSS of MDEditor preview defaults */
 .table,
 .wmde-markdown {
   font-size: 18px !important;
 }
 
 /* ! deal with the layout shift caused by y-scrollbar */
+/* TODO: this doesn't cover Safari and IE */
 html {
   overflow-y: scroll !important;
   scrollbar-width: none !important;
