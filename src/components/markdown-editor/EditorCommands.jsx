@@ -22,8 +22,7 @@ const commandsDropdown = [
     commands.italic,
     commands.strikethrough,
     commands.quote,
-    // ! this command breaks custom font size styling
-    // commands.table,
+    commands.table,
   ], {
     name: 'textTools',
     groupName: 'textTools',
@@ -72,8 +71,7 @@ const commandsExpanded = [
   commands.italic,
   commands.strikethrough,
   commands.quote,
-  // ! this command breaks custom font size styling
-  // commands.table,
+  commands.table,
   // * LIST TOOLS
   commands.divider,
   commands.unorderedListCommand,
