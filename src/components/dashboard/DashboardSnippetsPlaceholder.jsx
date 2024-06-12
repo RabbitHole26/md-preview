@@ -6,22 +6,13 @@ const DashboardSnippetsPlaceholder = () => {
       <p>
         You don&#96;t have any snippets yet...
       </p>
-      <div className="flex">
-        <div className="flex gap-1">
-          <p>
-            Create your first snippet
-          </p>
-          <Link
-            className="underline hover:text-secondary"
-            to='/'
-          >
-            here
-          </Link>
-        </div>
-        <p>
-          !
+      <p>
+        Create your first snippet{' '}
+        <Link className="underline hover:text-secondary" to='/'>
+          here
+        </Link>
+        !
         </p>
-      </div>
     </div>
   )
 }
