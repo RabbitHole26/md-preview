@@ -1,20 +1,22 @@
-/* ! if height is less than 100% there are issues in Firefox browser */
-.w-md-editor-text {
-  height: 100% !important;
-}
-
-/* ! override the CSS of the MDEditor editor */
+/* ! override default editor CSS (including Prism classess) */
+/* TODO: these settings don't work well on Firefox */
 .w-md-editor-text-pre > code,
-.w-md-editor-text-input {
-  font-size: 18px !important;
-  line-height: 20px !important;
+.w-md-editor-text-input,
+.wmde-markdown,
+.code-line,
+.table {
+  font-size: 1.2rem !important;
+  line-height: 1.4rem !important;
 }
 
-/* ! '.table' overrides Prism CSS classes created when highlight MD syntax, this is causing styling issues if font-size is default */
-/* ! '.wde-mardown' overrides CSS of MDEditor preview defaults */
-.table,
-.wmde-markdown {
-  font-size: 18px !important;
+/* ! disable dragbar to resize textarea */
+.w-md-editor-bar {
+  display: none !important;
+}
+
+/* ! if the vlaue is less than 100% there are problems on Firefox */
+.w-md-editor-text {
+  min-height: 100% !important;
 }
 
 /* ! deal with the layout shift caused by y-scrollbar */
