@@ -25,14 +25,14 @@ To get started with MD-Preview, follow these steps:
 
 1. Clone the repository
 2. Create the **.env** file
-  * You can use the provided **.env.example** file as a template.
+    * You can use the provided **.env.example** file as a template.
 3. Set up Supabase
-  * Create a Supabase account if you haven't already at [Supabase](https://supabase.com/).
-  * Once logged in, start a new project and open it.
-  * Navigate to Settings > Configuration > API within your Supabase project.
-  * Copy the following values into your **.env** file from the Supabase dashboard:
-    * **SUPABASE_URL**: Copy this from the 'Project URL' section.
-    * **SUPABASE_API_KEY**: Copy this from the 'Project API keys' section.
+    * Create a Supabase account if you haven't already at [Supabase](https://supabase.com/).
+    * Once logged in, start a new project and open it.
+    * Navigate to Settings > Configuration > API within your Supabase project.
+    * Copy the following values into your **.env** file from the Supabase dashboard:
+      * **SUPABASE_URL**: Copy this from the 'Project URL' section.
+      * **SUPABASE_API_KEY**: Copy this from the 'Project API keys' section.
 
 ## License
 
