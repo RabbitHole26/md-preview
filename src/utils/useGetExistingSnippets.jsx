@@ -4,7 +4,7 @@ const useGetExistingSnippets = () => {
   const {session} = useAuthContext()
 
   const getExistingSnippets = () => {
-    const existingSnippets = session.user.user_metadata.mdSnippets
+    const existingSnippets = session?.user.user_metadata.mdSnippets
     return existingSnippets
   }
 
