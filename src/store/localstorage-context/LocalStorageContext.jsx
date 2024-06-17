@@ -15,16 +15,16 @@ const LocalStorageProvider = ({children, initialThemeValueHTML}) => {
   const [theme, setTheme] = useState(
     setInitialState('theme', initialThemeValueHTML)
   )
-  const [selectedSnippet, setSelectedSnippet] = useState(
-    setInitialState('selectedSnippet', null)
-  )
+  // const [selectedSnippet, setSelectedSnippet] = useState(
+  //   setInitialState('selectedSnippet', null)
+  // )
 
   // ! useLocalStorage takes 2 arguments:
   // * 'key'
   // * 'dependency' (this is the dependency array for useEffect)
   useLocalStorage('input', input)
   useLocalStorage('theme', theme)
-  useLocalStorage('selectedSnippet', selectedSnippet)
+  // useLocalStorage('selectedSnippet', selectedSnippet)
   
   return (
     <LocalStorageContext.Provider value={{
@@ -32,8 +32,8 @@ const LocalStorageProvider = ({children, initialThemeValueHTML}) => {
       setInput,
       theme,
       setTheme,
-      selectedSnippet,
-      setSelectedSnippet
+      // selectedSnippet,
+      // setSelectedSnippet
     }}>
       {children}
     </LocalStorageContext.Provider>

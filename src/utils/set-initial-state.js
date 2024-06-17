@@ -1,7 +1,3 @@
-/*
-** BACKUP
-*/
-
 const setInitialState = (key, fallback) => {
   const storedData = window.localStorage.getItem(key)
   return storedData
