@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import useSaveToLocalStorage from "../../utils/useSaveToLocalStorage";
+import useLocalStorage from "../../utils/useLocalStorage";
 import setInitialState from "../../utils/set-initial-state";
 
 const SnippetContext = createContext()
@@ -7,7 +7,7 @@ const SnippetContext = createContext()
 const SnippetProvider = ({children}) => {
   const [selectedSnippet, setSelectedSnippet] = useState(setInitialState('selectedSnippet', {}))
 
-  useSaveToLocalStorage('selectedSnippet', selectedSnippet)
+  useLocalStorage('selectedSnippet', selectedSnippet)
   
   return (
     <SnippetContext.Provider value={{

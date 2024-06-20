@@ -2,14 +2,14 @@ import { useEffect, useRef, useReducer } from 'react'
 import { initialState, reducer } from './reducer'
 import { commandsDropdown, commandsExpanded, extraCommands } from './EditorCommands'
 import { light } from '../../store/theme-context/theme-aliases-map'
-import useLocalStorageContext from '../../store/localstorage-context/useLocalStorageContext'
+import useInputContext from '../../store/input-context/useInputContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import MDEditor from '@uiw/react-md-editor'
 import rehypeSanitize from "rehype-sanitize"
 
 const MarkdownInput = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  const {input, setInput} = useLocalStorageContext()
+  const {input, setInput} = useInputContext()
   const {theme} = useThemeContext()
   const editorRef = useRef(null)
 

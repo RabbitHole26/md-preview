@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom"
 import DashboardSnippets from "../../components/dashboard/DashboardSnippets"
-// import DashboardLayout from "../../components/layouts/DashboardLayout"
 import ErrorPage from "../error/ErrorPage"
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
