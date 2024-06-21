@@ -1,14 +1,12 @@
-import useLocalStorageContext from "../store/localstorage-context/useLocalStorageContext"
-import cleanUp from "../components/markdown-forms/cleanup"
+import useSnippetContext from "../store/snippet-context/useSnippetContext"
+import useInputContext from "../store/input-context/useInputContext"
 
 const useHandleReset = () => {
-  const {
-    setInput,
-    setSelectedSnippet
-  } = useLocalStorageContext()
+  const {setInput} = useInputContext()
+  const {setSelectedSnippet} = useSnippetContext()
 
-  const handleReset = (eraseInputBody) => {
-    eraseInputBody
+  const handleReset = (boolean) => {
+    boolean
       ? (
         setInput(prev => ({
           ...prev,
@@ -17,7 +15,11 @@ const useHandleReset = () => {
         }))
       )
       : (
-        cleanUp(setSelectedSnippet, null)
+        setSelectedSnippet(null),
+        setInput(prev => ({
+          ...prev,
+          title: null
+        }))
       )
     
   }

@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import useLoadingContext from "../loading-context/useLoadingContext"
+import useSnippetContext from '../../store/snippet-context/useSnippetContext'
 import supabaseClient from "../supabase-client/supabase-client"
 import removeJwtToken from "./remove-jwt-token"
-import useLocalStorageContext from "../localstorage-context/useLocalStorageContext"
 
 const useSignOut = () => {
   const navigate = useNavigate()
   const {setAuthLoading} = useLoadingContext()
-  const {setSelectedSnippet} = useLocalStorageContext()
+  const {setSelectedSnippet} = useSnippetContext()
 
   const handleSignOut = async () => {
 

@@ -1,7 +1,6 @@
 services:
   - type: web
     name: md-preview-public
-    env: static
     staticPublishPath: dist
     runtime: static
     routes:

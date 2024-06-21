@@ -1,21 +1,18 @@
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
+import useInputContext from "../../store/input-context/useInputContext"
+import useSnippetContext from '../../store/snippet-context/useSnippetContext'
 import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
 import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
-import cleanUp from "./cleanup"
 import toast from "react-hot-toast"
 
 const useOnSubmitMarkdownForm = ({reset}) => {
   const {updateUserMetadata} = useUpdateUserMetadata()
   const {getExistingSnippets} = useGetExistingSnippets()
-  
-  const {
-    input,
-    selectedSnippet,
-  } = useLocalStorageContext()
+  const {input} = useInputContext()
+  const {selectedSnippet} = useSnippetContext()
 
   const updateUserMetadataAndCleanUp = (data, action) => {
     updateUserMetadata(data, action)
-    cleanUp(null, reset)
+    reset()
   }
 
   // ! this 'onSubmit' function is used to create new snippets or update existing ones. hence the complexity.

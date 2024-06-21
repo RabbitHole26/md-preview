@@ -1,16 +1,19 @@
 import { useState } from "react"
 import { light } from "../../store/theme-context/theme-aliases-map"
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
+import useSnippetContext from "../../store/snippet-context/useSnippetContext"
 import DashboardListItem from "./DashboardListItem"
 import DashboardRenameControls from "./DashboardRenameControls"
 import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
 import DashboardSnippetPlaceholder from "./DashboardSnippetsPlaceholder"
+import useThemeContext from "../../store/theme-context/useThemeContext"
+
 
 const DashboardSnippets = () => {
   const [showRenameControls, setShowRenameControls] = useState({})
   const [snippetId, setSnippetId] = useState(null)
-  const {theme, selectedSnippet} = useLocalStorageContext()
+  const {theme} = useThemeContext()
+  const {selectedSnippet} = useSnippetContext()
   const {loading} = useLoadingContext()
   const {getExistingSnippets} = useGetExistingSnippets()
 

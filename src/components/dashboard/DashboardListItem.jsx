@@ -5,7 +5,7 @@ import { light } from "../../store/theme-context/theme-aliases-map"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import ButtonAccent from '../buttons/ButtonAccent'
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
+import useSnippetContext from "../../store/snippet-context/useSnippetContext"
 import useThemeContext from "../../store/theme-context/useThemeContext"
 import usePreviewContext from "../../store/preview-context/usePreviewContext"
 import useHandleUse from "../dashboard-hooks/useHandleUse"
@@ -16,7 +16,7 @@ import MarkdownPreview from '../markdown-preview/MarkdownPreview'
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()
-  const {selectedSnippet} = useLocalStorageContext()
+  const {selectedSnippet} = useSnippetContext()
   const {theme} = useThemeContext()
   const {handleUse} = useHandleUse()
   const {handlePreview} = useHandlePreview()

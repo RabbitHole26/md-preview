@@ -1,11 +1,14 @@
-import { createContext, useEffect } from "react"
+import { createContext, useEffect, useState } from "react"
 import { light, dark } from './theme-aliases-map'
-import useLocalStorageContext from "../localstorage-context/useLocalStorageContext"
+import setInitialState from "../../utils/set-initial-state"
+import useLocalStorage from "../../utils/useLocalStorage"
 
 const ThemeContext = createContext()
 
-const ThemeProvider = ({children}) => {
-  const {theme, setTheme} = useLocalStorageContext()
+const ThemeProvider = ({children, initialThemeValueHTML}) => {
+  const [theme, setTheme] = useState(setInitialState('theme', initialThemeValueHTML))
+
+  useLocalStorage('theme', theme)
 
   useEffect(() => {
     document.querySelector('#html-element').setAttribute('data-theme', theme)
@@ -21,7 +24,11 @@ const ThemeProvider = ({children}) => {
   }
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
+    <ThemeContext.Provider value={{
+      theme, 
+      setTheme,
+      toggleTheme
+    }}>
       {children}
     </ThemeContext.Provider>
   )

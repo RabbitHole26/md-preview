@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons"
 import { light } from "../../store/theme-context/theme-aliases-map"
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
 import useThemeContext from '../../store/theme-context/useThemeContext'
+import useInputContext from "../../store/input-context/useInputContext"
 
 const SnippetFormTitleHelper = ({setValue}) => {
-  const {input} = useLocalStorageContext()
+  const {input} = useInputContext()
   const {theme} = useThemeContext()
 
   const handleTitleClick = () => {

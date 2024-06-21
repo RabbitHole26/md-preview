@@ -1,5 +1,5 @@
 import useLoadingContext from '../loading-context/useLoadingContext'
-import useLocalStorageContext from '../localstorage-context/useLocalStorageContext'
+import useInputContext from '../input-context/useInputContext'
 import supabaseClient from '../supabase-client/supabase-client'
 import toast from 'react-hot-toast'
 import getLoadingState from './loading-state-map'
@@ -10,7 +10,7 @@ import useGetExistingSnippets from '../../utils/useGetExistingSnippets'
 
 const useUpdateUserMetadata = () => {
   const {setLoading, setSyncLoading} = useLoadingContext()
-  const {input} = useLocalStorageContext()
+  const {input} = useInputContext()
   const {getExistingSnippets} = useGetExistingSnippets()
 
   const updateUserMetadata = async (data, action) => {

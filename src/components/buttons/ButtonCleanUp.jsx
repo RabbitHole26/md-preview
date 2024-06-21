@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBroom } from '@fortawesome/free-solid-svg-icons'
-import useLocalStorageContext from '../../store/localstorage-context/useLocalStorageContext'
+import useSnippetContext from '../../store/snippet-context/useSnippetContext'
 import useHandleReset from "../../utils/useHandleReset"
 import ButtonAccent from "./ButtonAccent"
 
 const ButtonCleanUp = ({
   type = 'button',
   classNameSnippetForm, 
-  classNameSettingsControls
+  classNameSettingsControls,
 }) => {
-  const {selectedSnippet} = useLocalStorageContext()
+  const {selectedSnippet} = useSnippetContext()
   const {handleReset} = useHandleReset()
 
   return (

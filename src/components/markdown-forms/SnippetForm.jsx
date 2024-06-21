@@ -2,13 +2,14 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFloppyDisk, faEraser } from '@fortawesome/free-solid-svg-icons'
+import useInputContext from '../../store/input-context/useInputContext'
+import useAuthContext from "../../store/auth-context/useAuthContext"
+import useLoadingContext from "../../store/loading-context/useLoadingContext"
+import useSnippetContext from "../../store/snippet-context/useSnippetContext"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import ButtonSecondary from "../buttons/ButtonSecondary"
 import ButtonCleanUp from "../buttons/ButtonCleanUp"
 import InputStyled from "../inputs/InputStyled"
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
-import useAuthContext from "../../store/auth-context/useAuthContext"
-import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import SnippetFormTitleHelper from './SnippetFormTitleHelper'
 import useOnSubmitMarkdownForm from "./useOnSubmitMarkdownForm"
 import useHandleReset from "../../utils/useHandleReset"
@@ -17,11 +18,8 @@ const SnippetForm = () => {
   const [selectedInputField, setSelectedInputField] = useState(false)
   const {session} = useAuthContext()
   const {loading} = useLoadingContext()
-
-  const {
-    input,
-    selectedSnippet,
-  } = useLocalStorageContext()
+  const {input} = useInputContext()
+  const {selectedSnippet} = useSnippetContext()
 
   const {
     register,

@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom"
-import useLocalStorageContext from "../../store/localstorage-context/useLocalStorageContext"
+import useSnippetContext from '../../store/snippet-context/useSnippetContext'
+import useInputContext from "../../store/input-context/useInputContext"
 import scrollToTop from "../../utils/scroll-to-top"
 
 const useHandleUse = () => {
-  const {setInput, setSelectedSnippet} = useLocalStorageContext()
+  const {setInput} = useInputContext()
+  const {setSelectedSnippet} = useSnippetContext()
   const navigate = useNavigate()
 
   const handleUse = (snippet) => {
