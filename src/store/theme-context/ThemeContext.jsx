@@ -6,9 +6,7 @@ import useLocalStorage from "../../utils/useLocalStorage"
 const ThemeContext = createContext()
 
 const ThemeProvider = ({children, initialThemeValueHTML}) => {
-  console.log(initialThemeValueHTML)
   const [theme, setTheme] = useState(setInitialState('theme', initialThemeValueHTML))
-  console.log(theme)
 
   useLocalStorage('theme', theme)
 

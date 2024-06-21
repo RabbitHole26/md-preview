@@ -13,7 +13,6 @@ import { InputProvider } from './store/input-context/InputContext.jsx'
 // * the value is fetched from the 'dataset-theme' prop of the HTML tag
 // * this is utilized to change daisyUi themes dynamically on the HTML level
 const getInitialThemeValue = document.querySelector('#html-element').dataset.theme
-console.log(getInitialThemeValue)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>

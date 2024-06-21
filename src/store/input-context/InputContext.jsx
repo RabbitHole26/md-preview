@@ -2,20 +2,46 @@ import { createContext, useState } from "react";
 import setInitialState from "../../utils/set-initial-state";
 import markdownSample from "../../utils/markdown-sample";
 import useLocalStorage from "../../utils/useLocalStorage";
+import generateId from '../../utils/generate-id'
 
 const InputContext = createContext()
 
 const InputProvider = ({children}) => {
-  const [input, setInput] = useState(
-    setInitialState('input', {body: markdownSample})
-  )
 
-  useLocalStorage('input', input)
+  // eslint-disable-next-line no-unused-vars
+  const [baseId, setBaseId] = useState(() => {
+    let storedBasedId = localStorage.getItem('baseId')
+    if (!storedBasedId)
+      storedBasedId = generateId()
+    localStorage.setItem('baseId', storedBasedId)
+    return storedBasedId
+  })
+
+  // eslint-disable-next-line no-unused-vars
+  const [sessionId, setSessionId] = useState(() => {
+    let storedSessionId = sessionStorage.getItem('sessionId')
+    if (!storedSessionId)
+      storedSessionId = generateId()
+    sessionStorage.setItem('sessionId', storedSessionId)
+    return storedSessionId
+  })
+
+  const storageKey = `${baseId}_${sessionId}`
+
+  const initialState = setInitialState(storageKey, {
+    title: null,
+    body: markdownSample,
+    caretPosition: 0
+  })
+
+  const [input, setInput] = useState(initialState)
+
+  useLocalStorage(storageKey, input)    
 
   return (
     <InputContext.Provider value={{
       input,
-      setInput
+      setInput,
     }}>
       {children}
     </InputContext.Provider>

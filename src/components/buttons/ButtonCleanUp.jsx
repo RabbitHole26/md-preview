@@ -7,7 +7,7 @@ import ButtonAccent from "./ButtonAccent"
 const ButtonCleanUp = ({
   type = 'button',
   classNameSnippetForm, 
-  classNameSettingsControls
+  classNameSettingsControls,
 }) => {
   const {selectedSnippet} = useSnippetContext()
   const {handleReset} = useHandleReset()

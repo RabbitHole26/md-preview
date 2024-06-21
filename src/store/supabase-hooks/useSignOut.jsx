@@ -19,7 +19,7 @@ const useSignOut = () => {
       removeJwtToken()
       // * clearing 'selectedSnippet' from the localstorage to prevent issues when a different user logs in
       // * 'selectedSnippet' reflects snippet id which is unique
-      setSelectedSnippet({})
+      setSelectedSnippet(null)
       const { error } = await supabaseClient.auth.signOut()
 
       if (error)

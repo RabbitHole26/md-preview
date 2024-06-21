@@ -1,10 +1,5 @@
 // * id is generated client-side because the app utilizes the Supabase auth for snippets database
-const generateId = () => {
-  const idSegmentOne = Math.floor(Math.random() * 1e10).toString()
-  const idSegmentTwo = Date.now().toString()
-  const id = idSegmentOne + idSegmentTwo
-  return id
-}
+import generateId from "../../utils/generate-id"
 
 const generateNewSnippet = (data, input) => {
   const newSnipet = {

@@ -62,7 +62,7 @@ const DashboardControls = () => {
               <FontAwesomeIcon className='text-md lg:text-xl' icon={faArrowsRotate} />
             </ButtonAccent>
             <ButtonCleanUp 
-              classNameSettingsControls={'w-[35px] lg:w-[48px] btn-sm lg:btn-md'} 
+              classNameSettingsControls={'w-[35px] lg:w-[48px] btn-sm lg:btn-md'}
             />
           </div>
         </div>

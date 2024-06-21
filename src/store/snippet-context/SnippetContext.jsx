@@ -5,7 +5,7 @@ import setInitialState from "../../utils/set-initial-state";
 const SnippetContext = createContext()
 
 const SnippetProvider = ({children}) => {
-  const [selectedSnippet, setSelectedSnippet] = useState(setInitialState('selectedSnippet', {}))
+  const [selectedSnippet, setSelectedSnippet] = useState(setInitialState('selectedSnippet', null))
 
   useLocalStorage('selectedSnippet', selectedSnippet)
   
