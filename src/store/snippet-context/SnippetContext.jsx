@@ -1,13 +1,22 @@
 import { createContext, useState } from "react";
 import useLocalStorage from "../../utils/useLocalStorage";
 import setInitialState from "../../utils/set-initial-state";
+import useInputContext from '../input-context/useInputContext'
 
 const SnippetContext = createContext()
 
 const SnippetProvider = ({children}) => {
-  const [selectedSnippet, setSelectedSnippet] = useState(setInitialState('selectedSnippet', null))
+  const {baseId, sessionId} = useInputContext()
 
-  useLocalStorage('selectedSnippet', selectedSnippet)
+  const storageKey = `${baseId}_${sessionId}_selectedSnippet`
+
+  sessionStorage.getItem(storageKey)
+
+  const initialState = setInitialState(storageKey, null)
+
+  const [selectedSnippet, setSelectedSnippet] = useState(initialState)
+
+  useLocalStorage(storageKey, selectedSnippet)
   
   return (
     <SnippetContext.Provider value={{

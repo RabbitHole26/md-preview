@@ -26,7 +26,7 @@ const InputProvider = ({children}) => {
     return storedSessionId
   })
 
-  const storageKey = `${baseId}_${sessionId}`
+  const storageKey = `${baseId}_${sessionId}_input`
 
   const initialState = setInitialState(storageKey, {
     title: null,
@@ -42,6 +42,8 @@ const InputProvider = ({children}) => {
     <InputContext.Provider value={{
       input,
       setInput,
+      baseId,
+      sessionId
     }}>
       {children}
     </InputContext.Provider>
