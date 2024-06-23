@@ -1,42 +1,50 @@
-import { createContext, useState } from "react";
+import { 
+  createContext, 
+  useEffect, 
+  useState 
+} from "react";
 import setInitialState from "../../utils/set-initial-state";
 import markdownSample from "../../utils/markdown-sample";
 import useLocalStorage from "../../utils/useLocalStorage";
-import generateId from '../../utils/generate-id'
+import generateStorageId from "./generate-storage-id";
 
 const InputContext = createContext()
 
 const InputProvider = ({children}) => {
+  const [baseId] = useState(generateStorageId(localStorage, 'baseId'))
 
-  // eslint-disable-next-line no-unused-vars
-  const [baseId, setBaseId] = useState(() => {
-    let storedBasedId = localStorage.getItem('baseId')
-    if (!storedBasedId)
-      storedBasedId = generateId()
-    localStorage.setItem('baseId', storedBasedId)
-    return storedBasedId
-  })
+  const [sessionId] = useState(generateStorageId(sessionStorage, 'sessionId'))
 
-  // eslint-disable-next-line no-unused-vars
-  const [sessionId, setSessionId] = useState(() => {
-    let storedSessionId = sessionStorage.getItem('sessionId')
-    if (!storedSessionId)
-      storedSessionId = generateId()
-    sessionStorage.setItem('sessionId', storedSessionId)
-    return storedSessionId
-  })
+  const storageKey = `input_${baseId}_${sessionId}`
 
-  const storageKey = `${baseId}_${sessionId}_input`
+  const lastEditedSnippet = localStorage.getItem('lastEditedSnippet')
 
-  const initialState = setInitialState(storageKey, {
-    title: null,
-    body: markdownSample,
-    caretPosition: 0
-  })
+  const [input, setInput] = useState(setInitialState(storageKey, lastEditedSnippet
+    ? JSON.parse(lastEditedSnippet)
+    : {
+      title: null,
+      body: markdownSample,
+      caretPosition: 0
+    }))
 
-  const [input, setInput] = useState(initialState)
+  // save snippet to local storage
+  useLocalStorage(storageKey, input)
 
-  useLocalStorage(storageKey, input)    
+  // save last edited snippet
+  useEffect(() => {
+    if (input) {
+      const {title, body, caretPosition} = input
+      const newBody = body.length === 0
+        ? markdownSample
+        : body
+
+      localStorage.setItem('lastEditedSnippet', JSON.stringify({
+        title: title || null,
+        body: newBody || '',
+        caretPosition: caretPosition || 0
+      }))
+    }
+  }, [input])
 
   return (
     <InputContext.Provider value={{

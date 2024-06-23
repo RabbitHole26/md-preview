@@ -8,7 +8,7 @@ const SnippetContext = createContext()
 const SnippetProvider = ({children}) => {
   const {baseId, sessionId} = useInputContext()
 
-  const storageKey = `${baseId}_${sessionId}_selectedSnippet`
+  const storageKey = `selectedSnippet_${baseId}_${sessionId}`
 
   sessionStorage.getItem(storageKey)
 
