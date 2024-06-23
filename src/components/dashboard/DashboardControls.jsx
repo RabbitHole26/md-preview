@@ -4,19 +4,23 @@ import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
 import { light, dark } from '../../store/theme-context/theme-aliases-map'
 import ButtonPrimary from '../buttons/ButtonPrimary'
 import ButtonAccent from '../buttons/ButtonAccent'
+import ButtonCleanUp from '../buttons/ButtonCleanUp'
 import useSignOut from '../../store/supabase-hooks/useSignOut'
 import useAuthContext from '../../store/auth-context/useAuthContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import useLoadingContext from '../../store/loading-context/useLoadingContext'
+import useSnippetContext from '../../store/snippet-context/useSnippetContext'
 import useUpdateUserMetadata from '../../store/supabase-hooks/useUpdateUserMetadata'
-import ButtonCleanUp from '../buttons/ButtonCleanUp'
+import useHandleReset from '../../utils/useHandleReset'
 
 const DashboardControls = () => {
   const {session} = useAuthContext()
   const {theme} = useThemeContext()
   const {syncLoading} = useLoadingContext()
+  const {selectedSnippet} = useSnippetContext()
   const {handleSignOut} = useSignOut()
   const {updateUserMetadata} = useUpdateUserMetadata()
+  const {handleReset} = useHandleReset()
   const location = useLocation()
 
   return (
@@ -61,9 +65,7 @@ const DashboardControls = () => {
             >
               <FontAwesomeIcon className='text-md lg:text-xl' icon={faArrowsRotate} />
             </ButtonAccent>
-            <ButtonCleanUp 
-              classNameSettingsControls={'w-[35px] lg:w-[48px] btn-sm lg:btn-md'}
-            />
+            <ButtonCleanUp className={`w-[35px] lg:w-[48px] btn-sm lg:btn-md ${!selectedSnippet ? 'btn-disabled' : ''}`} onClick={() => handleReset(false)}/>
           </div>
         </div>
       </div>

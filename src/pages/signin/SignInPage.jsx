@@ -63,7 +63,7 @@ const SignInPage = () => {
 
         {/* submit button */}
         <div className="flex flex-col items-center">
-          <ButtonPrimary className={'w-[180px]'}>
+          <ButtonPrimary type="submit" className={'w-[180px]'}>
             Login
           </ButtonPrimary>
           {/* signup link */}

@@ -1,25 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBroom } from '@fortawesome/free-solid-svg-icons'
-import useSnippetContext from '../../store/snippet-context/useSnippetContext'
-import useHandleReset from "../../utils/useHandleReset"
-import ButtonAccent from "./ButtonAccent"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBroom } from "@fortawesome/free-solid-svg-icons"
 
-const ButtonCleanUp = ({
-  type = 'button',
-  classNameSnippetForm, 
-  classNameSettingsControls,
-}) => {
-  const {selectedSnippet} = useSnippetContext()
-  const {handleReset} = useHandleReset()
-
+const ButtonCleanUp = ({type = 'button', className, onClick}) => {
   return (
-    <ButtonAccent
-    type={type}
-    className={`${classNameSettingsControls ? classNameSettingsControls : classNameSnippetForm} ${!selectedSnippet ? 'btn-disabled' : ''}`}
-    onClick={() => handleReset()}
-    >
+    <button type={type} className={`btn btn-accent hover ${className}`} onClick={onClick}>
       <FontAwesomeIcon className="text-md lg:text-xl" icon={faBroom} />
-    </ButtonAccent>
+    </button>
   )
 }
 

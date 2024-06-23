@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { light } from '../../store/theme-context/theme-aliases-map'
 import MarkdownPreview from '@uiw/react-markdown-preview'
 import usePreviewContext from '../../store/preview-context/usePreviewContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
+import ButtonClose from '../buttons/ButtonClose'
 
 const PreviewSnippet = () => {
   const {snippetPreview, setSnippetPreview} = usePreviewContext()
@@ -18,13 +17,8 @@ const PreviewSnippet = () => {
 
   return (
     <div className={`flex flex-col p-1 rounded-md mb-2 mx-1 330px-custom:mx-2 ${theme === light ? 'bg-neutral-300' : 'bg-stone-800'}`}>
-      <div className='text-right'>
-        <button 
-          className='hover:text-secondary' 
-          onClick={handleClick}
-        >
-          <FontAwesomeIcon className='pr-3 md:py-1 text-md md:text-xl' icon={faXmark} />
-        </button>
+      <div className='flex justify-end'>
+        <ButtonClose onClick={handleClick}/>
       </div>
       <div>
         <MarkdownPreview

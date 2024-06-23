@@ -74,7 +74,6 @@ const DashboardRenameControls = ({
           <FontAwesomeIcon className="text-md md:text-lg" icon={faCheck} />
         </ButtonPrimary>
         <ButtonAccent 
-          type={'button'} 
           className={`btn-xs lg:btn-sm w-[50px] ${loading && snippetId === snippet.id ? 'btn-disabled' : ''}`}
           onClick={() => handleRenameCancel(snippet.id)}
         >

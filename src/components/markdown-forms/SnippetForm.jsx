@@ -94,7 +94,6 @@ const SnippetForm = () => {
 
               {/* button erase */}
               <ButtonSecondary
-                type='button'
                 className={`btn-sm 400px-custom:btn-md w-[48px] ${loading || input.body?.trim().length === 0 ? 'btn-disabled' : ''}`} 
                 onClick={() => handleReset(true)}
               >
@@ -102,8 +101,9 @@ const SnippetForm = () => {
               </ButtonSecondary>
 
               {/* button cleanup */}
-              <ButtonCleanUp 
-                classNameSnippetForm={'btn-sm 400px-custom:btn-md w-[48px]'}
+              <ButtonCleanUp
+                className={`btn-sm 400px-custom:btn-md w-[48px] ${!selectedSnippet ? 'btn-disabled' : ''}`}
+                onClick={() => handleReset(false)}
               />
 
               {/* debuggining buttons */}
