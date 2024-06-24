@@ -52,8 +52,8 @@ const DashboardRenameControls = ({
         errors={errors}
         name='newSnippetTitle'
         placeholder='Snippet title...'
-        className={'pl-5 border-0 rounded-md w-[150px] sm:w-[250px] md:w-[300px]'}
-        inputPadding={'p-0'}
+        className='pl-5 border-0 rounded-md w-[150px] sm:w-[250px] md:w-[300px]'
+        inputPadding='p-0'
         displayError={false}
         // ! rendering the error in the standard way (absolute + padding) is out of question - there is no space between list items for this solution.
         // ! the validation rules were disabled and error handling logic is in the 'onSubmit' function.
@@ -68,7 +68,7 @@ const DashboardRenameControls = ({
       </div>
       <div className="flex gap-3">
         <ButtonPrimary 
-          type={'submit'} 
+          type='submit' 
           className={`btn-xs lg:btn-sm w-[50px] ${loading && snippetId === snippet.id ? 'btn-disabled' : ''}`} 
         >
           <FontAwesomeIcon className="text-md md:text-lg" icon={faCheck} />

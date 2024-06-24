@@ -58,8 +58,8 @@ const SnippetForm = () => {
               onFocus={() => {setSelectedInputField(true)}}
               name='snippetTitle'
               placeholder='Snippet title...'
-              className={'max-w-[250px] pl-5 400px-custom:w-[200px] md:w-[250px]'}
-              inputPadding={'pb-10'}
+              className='max-w-[250px] pl-5 400px-custom:w-[200px] md:w-[250px]'
+              inputPadding='pb-10'
               displayError={selectedInputField && errors}
               errorVariantClassName={'absolute text-sm flex justify-center w-[200px] text-red-600 py-2'}
               rules={{
@@ -76,16 +76,16 @@ const SnippetForm = () => {
               {watchedInputMatchesSnippet
                 ? (
                   <ButtonPrimary 
-                  type={'submit'} 
-                  className={`btn-sm 400px-custom:btn-md w-[48px] ${loading ? 'btn-disabled' : ''}`}
+                  type='submit' 
+                  className={`btn-md btn-circle ${loading ? 'btn-disabled' : ''}`}
                   >
                     <FontAwesomeIcon className='text-xl' icon={faFloppyDisk} />
                   </ButtonPrimary>
                 )
                 : (
                   <ButtonSecondary 
-                  type={'submit'} 
-                  className={`btn-sm 400px-custom:btn-md w-[48px] ${loading ? 'btn-disabled' : ''}`}
+                  type='submit' 
+                  className={`btn-md btn-circle ${loading ? 'btn-disabled' : ''}`}
                   >
                     <FontAwesomeIcon className='text-xl' icon={faFloppyDisk} />
                   </ButtonSecondary>
@@ -94,7 +94,7 @@ const SnippetForm = () => {
 
               {/* button erase */}
               <ButtonSecondary
-                className={`btn-sm 400px-custom:btn-md w-[48px] ${loading || input.body?.trim().length === 0 ? 'btn-disabled' : ''}`} 
+                className={`btn-md btn-circle ${loading || input.body?.trim().length === 0 ? 'btn-disabled' : ''}`} 
                 onClick={() => handleReset(true)}
               >
                 <FontAwesomeIcon className='text-xl' icon={faEraser} />
@@ -102,7 +102,7 @@ const SnippetForm = () => {
 
               {/* button cleanup */}
               <ButtonCleanUp
-                className={`btn-sm 400px-custom:btn-md w-[48px] ${!selectedSnippet ? 'btn-disabled' : ''}`}
+                className={`btn-md btn-circle ${!selectedSnippet ? 'btn-disabled' : ''}`}
                 onClick={() => handleReset(false)}
               />
 

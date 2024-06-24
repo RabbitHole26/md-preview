@@ -71,7 +71,7 @@ const DashboardSettings = () => {
         </div>
       </div>
       <div className="mb-3">
-        <ButtonPrimary type={'submit'} className={`lg:min-w-[100px] ${loading ? 'btn-disabled' : ''}`}>
+        <ButtonPrimary type='submit' className={`lg:min-w-[100px] ${loading ? 'btn-disabled' : ''}`}>
           Save
         </ButtonPrimary>
       </div>

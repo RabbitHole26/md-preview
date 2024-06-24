@@ -32,7 +32,7 @@ const DashboardControls = () => {
           Hello there, <span className="italic font-bold">{session.user.user_metadata.displayName}</span> !
         </h2>
         <ButtonPrimary 
-          className={'btn-xs sm:btn-sm'} 
+          className='btn-xs sm:btn-sm' 
           onClick={() => handleSignOut()}
         >
           Sign out
@@ -60,12 +60,12 @@ const DashboardControls = () => {
           {/* sync / cleanup */}
           <div className='flex gap-1 400px-custom:gap-2'>
             <ButtonAccent
-              className={`w-[35px] lg:w-[48px] btn-sm lg:btn-md ${syncLoading ? 'btn-disabled' : ''}`}
+              className={`btn-circle btn-sm lg:btn-md ${syncLoading ? 'btn-disabled' : ''}`}
               onClick={() => {updateUserMetadata(null, 'USE_refreshSession')}}
             >
               <FontAwesomeIcon className='text-md lg:text-xl' icon={faArrowsRotate} />
             </ButtonAccent>
-            <ButtonCleanUp className={`w-[35px] lg:w-[48px] btn-sm lg:btn-md ${!selectedSnippet ? 'btn-disabled' : ''}`} onClick={() => handleReset(false)}/>
+            <ButtonCleanUp className={`btn-circle btn-sm lg:btn-md ${!selectedSnippet ? 'btn-disabled' : ''}`} onClick={() => handleReset(false)}/>
           </div>
         </div>
       </div>
