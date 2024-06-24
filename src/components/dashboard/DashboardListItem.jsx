@@ -6,7 +6,6 @@ import useLoadingContext from "../../store/loading-context/useLoadingContext";
 import useSnippetContext from "../../store/snippet-context/useSnippetContext";
 import useThemeContext from "../../store/theme-context/useThemeContext";
 import usePreviewContext from "../../store/preview-context/usePreviewContext";
-import useStylingContext from '../../store/styling-context/useStylingContext'
 import MarkdownPreview from '../markdown-preview/MarkdownPreview'
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonAccent from "../buttons/ButtonAccent";
@@ -17,9 +16,8 @@ import useHandlePreview from "../dashboard-hooks/useHandlePreview";
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()
-  const {selectedSnippet} = useSnippetContext()
+  const {selectedSnippet, previewOpenId} = useSnippetContext()
   const {snippetPreview} = usePreviewContext()
-  const {previewOpenId} = useStylingContext()
   const {theme} = useThemeContext()
   const {handleUse} = useHandleUse()
   const {handlePreview} = useHandlePreview()

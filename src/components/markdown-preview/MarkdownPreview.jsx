@@ -2,13 +2,16 @@ import { light } from '../../store/theme-context/theme-aliases-map'
 import MarkdownPreview from '@uiw/react-markdown-preview'
 import usePreviewContext from '../../store/preview-context/usePreviewContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
-import useStylingContext from '../../store/styling-context/useStylingContext'
 import ButtonClose from '../buttons/ButtonClose'
 
 const PreviewSnippet = ({snippet}) => {
-  const {snippetPreview, setSnippetPreview} = usePreviewContext()
   const {theme} = useThemeContext()
-  const {previewOpenId, setPreviewOpenId} = useStylingContext()
+  const {
+    snippetPreview, 
+    setSnippetPreview,
+    previewOpenId,
+    setPreviewOpenId
+  } = usePreviewContext()
 
   const handleClick = () => {
     setPreviewOpenId(null)

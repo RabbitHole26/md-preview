@@ -7,11 +7,14 @@ const PreviewProvider = ({children}) => {
     id: null,
     body: null
   })
+  const [previewOpenId, setPreviewOpenId] = useState(null)
 
   return (
     <PreviewContext.Provider value={{
       snippetPreview,
-      setSnippetPreview
+      setSnippetPreview,
+      previewOpenId,
+      setPreviewOpenId
     }}>
       {children}
     </PreviewContext.Provider>

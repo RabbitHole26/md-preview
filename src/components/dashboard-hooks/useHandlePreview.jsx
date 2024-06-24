@@ -1,10 +1,8 @@
 import usePreviewContext from '../../store/preview-context/usePreviewContext'
-import useStylingContext from '../../store/styling-context/useStylingContext'
 import useGetExistingSnippets from '../../utils/useGetExistingSnippets'
 
 const useHandlePreview = () => {
-  const {setSnippetPreview} = usePreviewContext()
-  const {setPreviewOpenId} = useStylingContext()
+  const {setSnippetPreview, setPreviewOpenId} = usePreviewContext()
   const {getExistingSnippets} = useGetExistingSnippets()
 
   const handlePreview = (snippetId) => {
