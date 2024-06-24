@@ -9,6 +9,7 @@ import App from './App.jsx'
 import './index.css'
 import { SnippetProvider } from './store/snippet-context/SnippetContext.jsx'
 import { InputProvider } from './store/input-context/InputContext.jsx'
+import { StylingProvider } from './store/styling-context/StylingContext.jsx'
 
 // * the value is fetched from the 'dataset-theme' prop of the HTML tag
 // * this is utilized to change daisyUi themes dynamically on the HTML level
@@ -16,20 +17,22 @@ const getInitialThemeValue = document.querySelector('#html-element').dataset.the
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
-    <InputProvider>
-      <SnippetProvider>
-        <PreviewProvider>
-          <LoadingProvider>
-            <AuthProvider>
-              <ThemeProvider initialThemeValueHTML={getInitialThemeValue}>
-                <BrowserRouter>
-                  <App />
-                </BrowserRouter>
-              </ThemeProvider>
-            </AuthProvider>
-          </LoadingProvider>
-        </PreviewProvider>
-      </SnippetProvider>
-    </InputProvider>
+    <StylingProvider>
+      <InputProvider>
+        <SnippetProvider>
+          <PreviewProvider>
+            <LoadingProvider>
+              <AuthProvider>
+                <ThemeProvider initialThemeValueHTML={getInitialThemeValue}>
+                  <BrowserRouter>
+                    <App />
+                  </BrowserRouter>
+                </ThemeProvider>
+              </AuthProvider>
+            </LoadingProvider>
+          </PreviewProvider>
+        </SnippetProvider>
+      </InputProvider>
+    </StylingProvider>
   //</React.StrictMode>
 )
