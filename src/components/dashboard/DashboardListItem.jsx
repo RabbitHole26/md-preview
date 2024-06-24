@@ -1,44 +1,42 @@
-import { useEffect, useRef } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash, faRightToBracket, faPen, faEye } from "@fortawesome/free-solid-svg-icons"
-import { light } from "../../store/theme-context/theme-aliases-map"
-import ButtonPrimary from "../buttons/ButtonPrimary"
-import ButtonAccent from '../buttons/ButtonAccent'
-import useLoadingContext from "../../store/loading-context/useLoadingContext"
-import useSnippetContext from "../../store/snippet-context/useSnippetContext"
-import useThemeContext from "../../store/theme-context/useThemeContext"
-import usePreviewContext from "../../store/preview-context/usePreviewContext"
-import useHandleUse from "../dashboard-hooks/useHandleUse"
-import useHandleRename from "../dashboard-hooks/useHandleRename"
-import useHandleRemove from "../dashboard-hooks/useHandleRemove"
-import useHandlePreview from "../dashboard-hooks/useHandlePreview"
+import { useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faRightToBracket, faPen, faEye } from "@fortawesome/free-solid-svg-icons";
+import { light } from "../../store/theme-context/theme-aliases-map";
+import useLoadingContext from "../../store/loading-context/useLoadingContext";
+import useSnippetContext from "../../store/snippet-context/useSnippetContext";
+import useThemeContext from "../../store/theme-context/useThemeContext";
+import usePreviewContext from "../../store/preview-context/usePreviewContext";
+import useStylingContext from '../../store/styling-context/useStylingContext'
 import MarkdownPreview from '../markdown-preview/MarkdownPreview'
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonAccent from "../buttons/ButtonAccent";
+import useHandleUse from "../dashboard-hooks/useHandleUse";
+import useHandleRename from "../dashboard-hooks/useHandleRename";
+import useHandleRemove from "../dashboard-hooks/useHandleRemove";
+import useHandlePreview from "../dashboard-hooks/useHandlePreview";
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()
   const {selectedSnippet} = useSnippetContext()
+  const {snippetPreview} = usePreviewContext()
+  const {previewOpenId} = useStylingContext()
   const {theme} = useThemeContext()
   const {handleUse} = useHandleUse()
   const {handlePreview} = useHandlePreview()
-  const {snippetPreview} = usePreviewContext()
+  const {handleRemove} = useHandleRemove({setSnippetId})
+  const {handleRename} = useHandleRename({
+    setSnippetId,
+    setShowRenameControls,
+  })
 
   const divRef = useRef()
 
-  const {
-    handleRename,
-  } = useHandleRename({
-    setSnippetId,
-    setShowRenameControls
-  })
-
-  const {handleRemove} = useHandleRemove({
-    setSnippetId
-  })
-
   useEffect(() => {
-    if (divRef.current && snippetPreview.id === snippet.id)
+    if (divRef.current && snippetPreview.id === snippet.id) {
       divRef.current.scrollIntoView({ behavior: 'smooth' })
-  })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handlePreview])
 
   return (
     <div className="flex flex-col w-full justify-center" ref={divRef}>
@@ -53,7 +51,6 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
         <div className="flex flex-row-reverse items-center gap-3">
           {/* button remove */}
           <ButtonAccent
-            // ! some buttons are disabled when 'selectedSnippet === snippet.id' condition is met because the 'selectedSnippet' persists after re-render. this is an edge case scenario: user navigates away from editor before amending changes, and attempts to delete or rename (by accident?) the snippet for which changes are pending. The interface is designed to let the user navigate away from the editor, and come back to continue where they left off.
             className={`btn-xs lg:btn-sm w-[50px] ${(loading && snippetId === snippet.id) || showRenameControls[snippetId] || selectedSnippet === snippet.id ? 'btn-disabled' : ''}`}
             onClick={() => handleRemove(snippet.id)}
           >
@@ -68,7 +65,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           </ButtonPrimary>
           {/* button preview */}
           <ButtonPrimary
-            className={`btn-xs lg:btn-sm w-[50px] ${snippetPreview.id === snippet.id ? '' : 'opacity-50'}`}
+            className={`btn-xs lg:btn-sm w-[50px] ${previewOpenId === snippet.id ? '' : 'opacity-50'}`}
             onClick={() => handlePreview(snippet.id)}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faEye} />
@@ -80,19 +77,11 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faRightToBracket} />
           </ButtonPrimary>
-
-          {/* debugging buttons */}
-          {/* <button className="btn btn-secondary flex flex-col items-center" onClick={() => {console.log(showRenameControls)}}>
-            <span className="font-normal">print</span>
-            <span className="font-bold">showRenameControls</span>
-          </button> */}
         </div>
       </div>
 
       {/* snippet preview */}
-      {snippetPreview.id === snippet.id &&
-        <MarkdownPreview />
-      }
+      <MarkdownPreview snippet={snippet} />
     </div>
   )
 }
