@@ -65,7 +65,7 @@ const DashboardControls = () => {
             >
               <FontAwesomeIcon className='text-md lg:text-xl' icon={faArrowsRotate} />
             </ButtonAccent>
-            <ButtonCleanUp className={`btn-circle btn-sm lg:btn-md ${!selectedSnippet ? 'btn-disabled' : ''}`} onClick={() => handleReset(false)}/>
+            <ButtonCleanUp className={`btn-circle btn-sm lg:btn-md ${!selectedSnippet ? 'btn-disabled' : ''}`} classNameFa={`text-md lg:text-lg`} onClick={() => handleReset(false)}/>
           </div>
         </div>
       </div>

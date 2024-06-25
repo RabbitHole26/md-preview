@@ -103,6 +103,7 @@ const SnippetForm = () => {
               {/* button cleanup */}
               <ButtonCleanUp
                 className={`btn-md btn-circle ${!selectedSnippet ? 'btn-disabled' : ''}`}
+                classNameFa='text-lg'
                 onClick={() => handleReset(false)}
               />
 
