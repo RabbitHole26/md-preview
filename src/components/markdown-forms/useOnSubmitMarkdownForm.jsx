@@ -30,7 +30,7 @@ const useOnSubmitMarkdownForm = ({reset}) => {
             {id: selectedSnippet, body: input.body, caretPosition: input.caretPosition}, 
             'MODIFY_snippet'
             )
-    } else if (existingSnippetMatchedByTitle && !selectedSnippet) {
+    } else if (existingSnippetMatchedByTitle) {
       toast.error(`You already have a snippet titled '${snippetTitle}'.`)
     } else {
       updateUserMetadataAndCleanUp(
