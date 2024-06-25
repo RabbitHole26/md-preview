@@ -2,13 +2,11 @@ import usePreviewContext from '../../store/preview-context/usePreviewContext'
 import useGetExistingSnippets from '../../utils/useGetExistingSnippets'
 
 const useHandlePreview = () => {
-  const {setSnippetPreview, setPreviewOpenId} = usePreviewContext()
+  const {setSnippetPreview} = usePreviewContext()
   const {getExistingSnippets} = useGetExistingSnippets()
 
   const handlePreview = (snippetId) => {
     const findSnippet = getExistingSnippets().find(snippet => snippet.id === snippetId)
-
-    setPreviewOpenId(snippetId)
 
     setSnippetPreview(prev => ({
       ...prev,

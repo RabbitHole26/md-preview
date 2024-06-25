@@ -9,12 +9,9 @@ const PreviewSnippet = ({snippet}) => {
   const {
     snippetPreview, 
     setSnippetPreview,
-    previewOpenId,
-    setPreviewOpenId
   } = usePreviewContext()
 
   const handleClick = () => {
-    setPreviewOpenId(null)
     setSnippetPreview(prev => ({
       ...prev,
       id: null
@@ -22,7 +19,7 @@ const PreviewSnippet = ({snippet}) => {
   }
 
   return (
-    <div className={`transition-all duration-200 overflow-hidden ${previewOpenId === snippet.id ? 'max-h-[1000px]' : 'max-h-0'} `}>
+    <div className={`transition-all duration-200 overflow-hidden ${snippetPreview.id === snippet.id ? 'max-h-[1000px]' : 'max-h-0'} `}>
       <div className={`flex flex-col p-1 rounded-md mb-2 mx-1 330px-custom:mx-2 ${theme === light ? 'bg-neutral-300' : 'bg-stone-800'}`}>
         <div className='flex justify-end'>
           <ButtonClose onClick={handleClick}/>

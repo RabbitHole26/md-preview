@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faRightToBracket, faPen, faEye } from "@fortawesome/free-solid-svg-icons";
 import { light } from "../../store/theme-context/theme-aliases-map";
 import useLoadingContext from "../../store/loading-context/useLoadingContext";
-import useSnippetContext from "../../store/snippet-context/useSnippetContext";
 import useThemeContext from "../../store/theme-context/useThemeContext";
 import usePreviewContext from "../../store/preview-context/usePreviewContext";
 import MarkdownPreview from '../markdown-preview/MarkdownPreview'
@@ -16,7 +15,7 @@ import useHandlePreview from "../dashboard-hooks/useHandlePreview";
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()
-  const {selectedSnippet, previewOpenId} = useSnippetContext()
+  const {selectedSnippet} = usePreviewContext()
   const {snippetPreview} = usePreviewContext()
   const {theme} = useThemeContext()
   const {handleUse} = useHandleUse()
@@ -63,7 +62,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           </ButtonPrimary>
           {/* button preview */}
           <ButtonPrimary
-            className={`btn-xs lg:btn-sm w-[50px] ${previewOpenId === snippet.id ? '' : 'opacity-50'}`}
+            className={`btn-xs lg:btn-sm w-[50px] ${snippetPreview.id === snippet.id ? '' : 'opacity-50'}`}
             onClick={() => handlePreview(snippet.id)}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faEye} />
