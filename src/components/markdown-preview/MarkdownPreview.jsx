@@ -22,7 +22,7 @@ const PreviewSnippet = ({snippet}) => {
   }
 
   return (
-    <div className={`transition-all duration-200 overflow-hidden ${previewOpenId === snippet.id ? 'max-h-[300px]' : 'max-h-0'} `}>
+    <div className={`transition-all duration-200 overflow-hidden ${previewOpenId === snippet.id ? 'max-h-[1000px]' : 'max-h-0'} `}>
       <div className={`flex flex-col p-1 rounded-md mb-2 mx-1 330px-custom:mx-2 ${theme === light ? 'bg-neutral-300' : 'bg-stone-800'}`}>
         <div className='flex justify-end'>
           <ButtonClose onClick={handleClick}/>
@@ -37,9 +37,9 @@ const PreviewSnippet = ({snippet}) => {
             style={{
               borderRadius: '6px',
               padding: '25px',
-              maxHeight: '300px',
+              maxHeight: '400px',
               overflow: 'auto',
-              scrollbarWidth: 'none'
+              // scrollbarWidth: 'none'
             }}
           />
         </div>
