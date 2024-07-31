@@ -75,17 +75,19 @@ const SnippetForm = () => {
               {/* button update / save */}
               {watchedInputMatchesSnippet
                 ? (
-                  <ButtonPrimary 
-                  type='submit' 
+                  <ButtonPrimary
+                  type='submit'
                   className={`btn-md btn-circle ${loading ? 'btn-disabled' : ''}`}
+                  tooltip={'Update snippet'}
                   >
                     <FontAwesomeIcon className='text-xl' icon={faFloppyDisk} />
                   </ButtonPrimary>
                 )
                 : (
-                  <ButtonSecondary 
-                  type='submit' 
+                  <ButtonSecondary
+                  type='submit'
                   className={`btn-md btn-circle ${loading ? 'btn-disabled' : ''}`}
+                  tooltip={'Save snippet'}
                   >
                     <FontAwesomeIcon className='text-xl' icon={faFloppyDisk} />
                   </ButtonSecondary>
@@ -96,6 +98,7 @@ const SnippetForm = () => {
               <ButtonSecondary
                 className={`btn-md btn-circle ${loading || input.body?.trim().length === 0 ? 'btn-disabled' : ''}`} 
                 onClick={() => handleReset(true)}
+                tooltip={'Clear editor'}
               >
                 <FontAwesomeIcon className='text-xl' icon={faEraser} />
               </ButtonSecondary>
@@ -107,9 +110,9 @@ const SnippetForm = () => {
                 onClick={() => handleReset(false)}
               />
 
-              {/* debuggining buttons */}
-              {/* <button className="btn btn-secondary flex flex-col items-center" onClick={() => {console.log(session)}}>
-                <span className="font-normal">print</span>
+              {/* debugging buttons */}
+              {/* <button className="btn btn-secondary flex flex-col items-center" type="button" onClick={() => {console.log(session)}}>
+                <span className="font-normal">log</span>
                 <span className="font-bold">session</span>
               </button> */}
             </div>

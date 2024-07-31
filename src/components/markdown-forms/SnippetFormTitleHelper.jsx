@@ -13,7 +13,7 @@ const SnippetFormTitleHelper = ({setValue}) => {
   }
 
   return (
-    <div className="absolute top-0 z-40">
+    <div className="absolute top-0 z-30">
       <div 
         className={`flex items-center cursor-pointer hover:text-primary hover:opacity-100 opacity-40 gap-2 mb-2`} 
         onClick={handleTitleClick}

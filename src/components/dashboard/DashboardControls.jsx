@@ -43,7 +43,7 @@ const DashboardControls = () => {
       <div className='flex justify-center'>
         <div className={`flex gap-2 330px-custom:gap-4 400px-custom:gap-6 rounded-t-xl px-1 py-4 330px-custom:px-4 sm:px-10 w-fit ${theme === dark ? 'bg-[rgba(23,18,18,1)]' : 'bg-[rgba(250,247,245,1)]'}`}>
 
-          {/* settings / snippets */}
+          {/* settings and snippets buttons*/}
           <div className='flex gap-1 330px-custom:gap-2'>
             <Link to='/dashboard/settings'>
               <button className={`btn-sm no-animation bg-secondary rounded-3xl font-bold text-black lg:btn-md w-[100px] md:w-[120px] lg:w-[160px] ${location.pathname.startsWith('/dashboard/') ? 'opacity-100' : 'opacity-50'}`}>
@@ -57,11 +57,12 @@ const DashboardControls = () => {
             </Link>
           </div>
 
-          {/* sync / cleanup */}
+          {/* sync and cleanup buttons*/}
           <div className='flex gap-1 400px-custom:gap-2'>
             <ButtonAccent
               className={`btn-circle btn-sm lg:btn-md ${syncLoading ? 'btn-disabled' : ''}`}
               onClick={() => {updateUserMetadata(null, 'USE_refreshSession')}}
+              tooltip={'Sync snippets'}
             >
               <FontAwesomeIcon className='text-md lg:text-xl' icon={faArrowsRotate} />
             </ButtonAccent>
