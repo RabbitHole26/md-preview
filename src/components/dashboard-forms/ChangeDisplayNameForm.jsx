@@ -55,7 +55,7 @@ const ChangeDisplayNameForm = () => {
               },
               pattern: {
                 value: /^[a-z0-9\s]+$/i,
-                message: "Display name cannot contain special charaters."
+                message: "Display name cannot contain special characters."
               }
             }}
             icon={<FontAwesomeIcon icon={faUser} />}
