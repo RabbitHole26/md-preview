@@ -8,7 +8,6 @@ import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
 import DashboardSnippetPlaceholder from "./DashboardSnippetsPlaceholder"
 import useThemeContext from "../../store/theme-context/useThemeContext"
 
-
 const DashboardSnippets = () => {
   const [showRenameControls, setShowRenameControls] = useState({})
   const [snippetId, setSnippetId] = useState(null)
