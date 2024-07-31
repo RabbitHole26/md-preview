@@ -1,4 +1,11 @@
 import { commandsDropdown, commandsExpanded } from "./EditorCommands"
+import { 
+  SET_isComponentMounted,
+  SET_editorPreview,
+  SET_editorVisibleDragbar,
+  SET_editorHeight,
+  SET_editorCommands
+} from "./reducer-action-types"
 
 const viewportFilter = {
   isViewportXl: window.innerWidth >= 1280,
@@ -25,18 +32,18 @@ const initialState = {
   editorCommands: initialValues.editorCommands_INITIAL
 }
 
-// ! the reducer functions takes the default states define above and update them with data it gets from the payload coming from the 'MarkdownEditor' module
+// ! the reducer takes the default states defined above and updates it with data it gets from the action.payload object coming from the 'MarkdownEditor' module where dispatch is called
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_isComponentMounted':
+    case SET_isComponentMounted:
       return {...state, isComponentMounted: true}
-    case 'SET_editorPreview':
+    case SET_editorPreview:
       return {...state, editorPreview: action.payload}
-    case 'SET_editorVisibleDragbar':
+    case SET_editorVisibleDragbar:
       return {...state, editorVisibleDragbar: action.payload}
-    case 'SET_editorHeight':
+    case SET_editorHeight:
       return {...state, editorHeight: action.payload}
-    case 'SET_editorCommands':
+    case SET_editorCommands:
       return {...state, editorCommands: action.payload}
   }
 }

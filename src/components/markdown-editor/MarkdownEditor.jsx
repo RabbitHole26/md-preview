@@ -1,6 +1,13 @@
 import { useEffect, useRef, useReducer } from 'react'
 import { initialState, reducer } from './reducer'
 import { commandsDropdown, commandsExpanded, extraCommands } from './EditorCommands'
+import { 
+  SET_isComponentMounted,
+  SET_editorPreview,
+  SET_editorVisibleDragbar,
+  SET_editorHeight,
+  SET_editorCommands
+} from "./reducer-action-types"
 import { light } from '../../store/theme-context/theme-aliases-map'
 import useInputContext from '../../store/input-context/useInputContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
@@ -25,10 +32,10 @@ const MarkdownInput = () => {
     })
   }
 
-  // ! this useEffect updates dispatch states dynamically with data it gets from the event listeners
+  // ! this useEffect updates dispatch states dynamically with the data it gets from event listeners
   useEffect(() => {
     // * caret position, returns undefined if fetched before component finished mounting
-    // * this dispatch will set the state variable to 'true' so that caret position can be fetched successfully
+    // * this dispatch call will set the state variable to 'true' so that caret position can be fetched successfully when the component mounts
     dispatch({ 
       type: 'SET_isComponentMounted' 
     })
@@ -41,22 +48,22 @@ const MarkdownInput = () => {
         isViewportXs: window.innerWidth >= 500
       }
       dispatch({ 
-        type: 'SET_isComponentMounted' 
+        type: SET_isComponentMounted
       })
       dispatch({ 
-        type: 'SET_editorPreview', 
+        type: SET_editorPreview,
         payload: viewportFilter.isViewportXl ? 'live' : 'edit' 
       })
       dispatch({ 
-        type: 'SET_editorVisibleDragbar', 
+        type: SET_editorVisibleDragbar,
         payload: viewportFilter.isViewportLg ? true : false 
       })
       dispatch({ 
-        type: 'SET_editorHeight', 
+        type: SET_editorHeight,
         payload: viewportFilter.isViewportLg ? 700 : 500
       })
       dispatch({
-        type: 'SET_editorCommands',
+        type: SET_editorCommands,
         payload: viewportFilter.isViewportXs ? commandsExpanded : commandsDropdown
       })
     }
