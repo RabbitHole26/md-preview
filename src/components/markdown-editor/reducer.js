@@ -9,7 +9,6 @@ import {
 
 // import environment variable
 const environmentMode = import.meta.env.VITE_ENV_MODE
-console.log(environmentMode)
 
 const viewportFilter = {
   isViewportXl: window.innerWidth >= 1280,
@@ -51,7 +50,7 @@ const reducer = (state, action) => {
       return {...state, editorCommands: action.payload}
     default:
       if (environmentMode === 'development') {
-        throw new Error(`Provided action type doesn't match any of the cases. Initial state was returned!`)
+        throw new Error(`Provided action type doesn't match any of the reducer switch statement cases!`)
       } else {
         console.warn(`Provided action type doesn't match any of the cases. Initial state was returned!`)
         return state
