@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import LinkCustom from "../link-custom/LinkCustom"
 
 const DashboardSnippetsPlaceholder = () => {
   return (
@@ -8,9 +8,9 @@ const DashboardSnippetsPlaceholder = () => {
       </p>
       <p>
         Create your first snippet{' '}
-        <Link className="underline hover:text-secondary" to='/'>
+        <LinkCustom className="underline hover:text-secondary" to='/'>
           here
-        </Link>
+        </LinkCustom>
         !
         </p>
     </div>

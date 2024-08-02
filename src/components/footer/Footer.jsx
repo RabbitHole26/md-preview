@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import scrollToTop from "../../utils/scroll-to-top"
+import LinkCustom from "../link-custom/LinkCustom"
 
 // import environmental variable
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL
@@ -11,9 +10,9 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <nav className="grid grid-flow-col gap-4">
-        <Link onClick={scrollToTop} to='/about' className="link link-hover">
+        <LinkCustom to='/about' className="link link-hover">
           About
-        </Link>
+        </LinkCustom>
         <a href={contactString} className="link link-hover">
           Contact/Feedback
         </a>

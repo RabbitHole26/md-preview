@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
 import { light, dark } from '../../store/theme-context/theme-aliases-map'
@@ -12,6 +12,7 @@ import useLoadingContext from '../../store/loading-context/useLoadingContext'
 import useSnippetContext from '../../store/snippet-context/useSnippetContext'
 import useUpdateUserMetadata from '../../store/supabase-hooks/useUpdateUserMetadata'
 import useHandleReset from '../../utils/useHandleReset'
+import LinkCustom from '../link-custom/LinkCustom'
 
 const DashboardControls = () => {
   const {session} = useAuthContext()
@@ -41,20 +42,20 @@ const DashboardControls = () => {
 
       {/* buttons container */}
       <div className='flex justify-center'>
-        <div className={`flex gap-2 330px-custom:gap-4 400px-custom:gap-6 rounded-t-xl px-1 py-4 330px-custom:px-4 sm:px-10 w-fit ${theme === dark ? 'bg-[rgba(23,18,18,1)]' : 'bg-[rgba(250,247,245,1)]'}`}>
+        <div className={`flex gap-2 330px-custom:gap-4 400px-custom:gap-6 rounded-t-xl px-1 py-4 330px-custom:px-4 sm:px-10 w-fit ${theme === dark ? 'bg-theme-dark' : 'bg-theme-light'}`}>
 
           {/* settings and snippets buttons*/}
           <div className='flex gap-1 330px-custom:gap-2'>
-            <Link to='/dashboard/settings'>
+            <LinkCustom to='/dashboard/settings'>
               <button className={`btn-sm no-animation bg-secondary rounded-3xl font-bold text-black lg:btn-md w-[100px] md:w-[120px] lg:w-[160px] ${location.pathname.startsWith('/dashboard/') ? 'opacity-100' : 'opacity-50'}`}>
                 <span className='text-md lg:text-lg'>Settings</span>
               </button>
-            </Link>
-            <Link to='/dashboard'>
+            </LinkCustom>
+            <LinkCustom to='/dashboard'>
               <button className={`btn-sm no-animation bg-secondary rounded-3xl font-bold text-black lg:btn-md w-[100px] md:w-[120px] lg:w-[160px] ${location.pathname === '/dashboard' ? 'opacity-100' : 'opacity-50'}`}>
                 <span className='text-md lg:text-lg'>Snippets</span>
               </button>
-            </Link>
+            </LinkCustom>
           </div>
 
           {/* sync and cleanup buttons*/}

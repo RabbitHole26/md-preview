@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons"
 import useSignUp from "../../store/supabase-hooks/useSignUp"
@@ -8,6 +7,7 @@ import ButtonPrimary from "../../components/buttons/ButtonPrimary"
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import useApplyElementFocus from "../../utils/useApplyElementFocus"
+import LinkCustom from "../../components/link-custom/LinkCustom"
 
 const SignUpPage = () => {
   const {authLoading} = useLoadingContext()
@@ -118,7 +118,7 @@ const SignUpPage = () => {
             </ButtonPrimary>
             {/* login link */}
             <p className='text-sm md:text-md mb-20 mt-5 underline hover:text-primary'>
-              <Link to='/login'>Back to log in page.</Link>
+              <LinkCustom to='/login'>Back to log in page.</LinkCustom>
             </p>
           </div>
         </form>

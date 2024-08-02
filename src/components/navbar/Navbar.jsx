@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
 import ButtonTheme from "../buttons/ButtonTheme"
 import useAuthContext from "../../store/auth-context/useAuthContext"
 import daisyUiRemoveFocus from "../../utils/daisyUi-remove-focus"
+import LinkCustom from '../link-custom/LinkCustom'
 
 const Navbar = () => {
   const {session} = useAuthContext()
@@ -22,17 +22,17 @@ const Navbar = () => {
 
             {!session &&
               <>
-                <li onClick={handleClick}><Link to='/login'>Log in</Link></li>
+                <li onClick={handleClick}><LinkCustom to='/login'>Log in</LinkCustom></li>
               </>
             }
 
             {session &&
-              <li onClick={handleClick}><Link to='/dashboard'>Dashboard</Link></li>
+              <li onClick={handleClick}><LinkCustom to='/dashboard'>Dashboard</LinkCustom></li>
             }
           </ul>
         </div>
         {/* logo butoon */}
-        <Link to='/' className="btn btn-ghost text-lg">MD-Preview</Link>
+        <LinkCustom to='/' className="btn btn-ghost text-lg">MD-Preview</LinkCustom>
       </div>
       {/* navbar items outside burger dropdown container*/}
       <div className="navbar hidden lg:flex">
@@ -41,14 +41,14 @@ const Navbar = () => {
           {!session &&
             <>
               <li onClick={handleClick}>
-                <Link to='/login'>Log in</Link>
+                <LinkCustom to='/login'>Log in</LinkCustom>
               </li>
             </>
           }
 
           {session &&
             <li onClick={handleClick}>
-              <Link to='/dashboard'>Dashboard</Link>
+              <LinkCustom to='/dashboard'>Dashboard</LinkCustom>
             </li>
           }
         </ul>
