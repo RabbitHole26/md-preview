@@ -12,6 +12,10 @@ export default {
       screens: {
         '330px-custom': '330px',
         '400px-custom': '400px',
+      },
+      colors: {
+        'theme-light': 'rgba(250,247,245,1)',
+        'theme-dark': 'rgba(23,18,18,1)',
       }
     },
   },
