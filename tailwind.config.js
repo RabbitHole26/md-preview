@@ -28,7 +28,7 @@ export default {
     // https://github.com/tailwindlabs/tailwindcss/discussions/1739
     plugin(({ addVariant }) => {
       // Hover media queries
-      addVariant("has-hover", "@media (hover: hover)")
+      addVariant("has-hover", "@media (hover: hover) and (pointer: fine)") // ! Only mouse pointer will trigger this media query. Media query (hover: hover) triggers hover on Android devices because they support keyboard and mouse (this includes mobile phones).
       addVariant("no-hover", "@media (hover: none)")
       // Applied on hover if supported, never applied otherwise
       addVariant("hover-never", "@media (hover: hover) { &:hover }")
