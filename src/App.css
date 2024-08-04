@@ -1,4 +1,11 @@
-/* ! override default editor CSS (including Prism classess) */
+/* ! deal with the layout shift caused by y-scrollbar */
+/* TODO: this doesn't cover Safari and IE */
+html {
+  /* overflow-y: scroll !important; */
+  scrollbar-width: none !important;
+}
+
+/* ! override default editor CSS (including Prism classes) */
 /* TODO: these settings don't work well on Firefox */
 .w-md-editor-text-pre > code,
 .w-md-editor-text-input,
@@ -14,16 +21,9 @@
   display: none !important;
 }
 
-/* ! if the vlaue is less than 100% there are problems on Firefox */
+/* ! if the value is less than 100% there are problems on Firefox */
 .w-md-editor-text {
   min-height: 100% !important;
-}
-
-/* ! deal with the layout shift caused by y-scrollbar */
-/* TODO: this doesn't cover Safari and IE */
-html {
-  overflow-y: scroll !important;
-  scrollbar-width: none !important;
 }
 
 /* ! add custom shadows to ListItem 'snippet.title' */
