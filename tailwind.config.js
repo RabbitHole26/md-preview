@@ -38,7 +38,7 @@ export default {
       addVariant("hover-always", ["@media (hover: hover) { &:hover }", "@media (hover: none)"])
       addVariant("group-hover-always", ["@media (hover: hover) { :merge(.group):hover & }", "@media (hover: none)"])
       addVariant("peer-hover-always", ["@media (hover: hover) { :merge(.peer):hover & }", "@media (hover: none)"])
-  }),
+    }),
   ],
   daisyui: {
     themes: ["cupcake", "lemonade", "halloween", "forest"],
