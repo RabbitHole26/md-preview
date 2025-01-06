@@ -1,5 +1,5 @@
 import usePreviewContext from '../../store/preview-context/usePreviewContext'
-import useGetExistingSnippets from '../../utils/useGetExistingSnippets'
+import useGetExistingSnippets from '../useGetExistingSnippets'
 
 const useHandlePreview = () => {
   const {setSnippetPreview} = usePreviewContext()

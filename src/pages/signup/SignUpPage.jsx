@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons"
-import useSignUp from "../../store/supabase-hooks/useSignUp"
+import useSignUp from "../../hooks/supabase/useSignUp"
 import InputStyled from "../../components/inputs/InputStyled"
 import ButtonPrimary from "../../components/buttons/ButtonPrimary"
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
-import useApplyElementFocus from "../../utils/useApplyElementFocus"
+import useApplyElementFocus from "../../hooks/useApplyElementFocus"
 import LinkCustom from "../../components/link-custom/LinkCustom"
 
 const SignUpPage = () => {

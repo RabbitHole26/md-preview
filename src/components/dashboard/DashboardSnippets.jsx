@@ -4,7 +4,7 @@ import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import useSnippetContext from "../../store/snippet-context/useSnippetContext"
 import DashboardListItem from "./DashboardListItem"
 import DashboardRenameControls from "./DashboardRenameControls"
-import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
+import useGetExistingSnippets from "../../hooks/useGetExistingSnippets"
 import DashboardSnippetPlaceholder from "./DashboardSnippetsPlaceholder"
 import useThemeContext from "../../store/theme-context/useThemeContext"
 

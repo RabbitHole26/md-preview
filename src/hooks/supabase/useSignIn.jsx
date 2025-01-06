@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import useLoadingContext from "../loading-context/useLoadingContext"
-import supabaseClient from "../supabase-client/supabase-client"
+import useLoadingContext from "../../store/loading-context/useLoadingContext"
+import supabaseClient from "../../store/supabase-client/supabase-client"
 import toast from 'react-hot-toast'
 
 const useSignIn = () => {

@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import useLocalStorage from "../../utils/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import setInitialState from "../../utils/set-initial-state";
 import useInputContext from '../input-context/useInputContext'
 

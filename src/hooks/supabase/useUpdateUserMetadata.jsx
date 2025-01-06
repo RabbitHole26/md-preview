@@ -1,12 +1,12 @@
-import useLoadingContext from '../loading-context/useLoadingContext'
-import useInputContext from '../input-context/useInputContext'
-import supabaseClient from '../supabase-client/supabase-client'
+import useLoadingContext from '../../store/loading-context/useLoadingContext'
+import useInputContext from '../../store/input-context/useInputContext'
+import supabaseClient from '../../store/supabase-client/supabase-client'
 import toast from 'react-hot-toast'
 import getLoadingState from './loading-state-map'
 import getToastMessage from './toast-message-map'
 import generateNewSnippet from './generate-new-snippet'
 import defineUpdatedSnippets from './define-updated-snippets'
-import useGetExistingSnippets from '../../utils/useGetExistingSnippets'
+import useGetExistingSnippets from '../useGetExistingSnippets'
 
 const useUpdateUserMetadata = () => {
   const {setLoading, setSyncLoading} = useLoadingContext()

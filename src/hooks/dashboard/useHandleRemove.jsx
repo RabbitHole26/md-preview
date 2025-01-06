@@ -1,4 +1,4 @@
-import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
+import useUpdateUserMetadata from "../supabase/useUpdateUserMetadata"
 
 const useHandleRemove = ({setSnippetId}) => {
   const {updateUserMetadata} = useUpdateUserMetadata()

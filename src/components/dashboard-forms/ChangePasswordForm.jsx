@@ -6,7 +6,7 @@ import InputStyled from "../inputs/InputStyled"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import useThemeContext from "../../store/theme-context/useThemeContext"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
-import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
+import useUpdateUserMetadata from "../../hooks/supabase/useUpdateUserMetadata"
 
 const DashboardSettings = () => {
   const {theme} = useThemeContext()

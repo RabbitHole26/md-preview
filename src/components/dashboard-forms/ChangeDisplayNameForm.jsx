@@ -8,7 +8,7 @@ import ButtonPrimary from "../buttons/ButtonPrimary"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import toast from "react-hot-toast"
 import useAuthContext from "../../store/auth-context/useAuthContext"
-import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
+import useUpdateUserMetadata from "../../hooks/supabase/useUpdateUserMetadata"
 
 const ChangeDisplayNameForm = () => {
   const {theme} = useThemeContext()

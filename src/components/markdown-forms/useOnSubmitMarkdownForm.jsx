@@ -1,7 +1,7 @@
 import useInputContext from "../../store/input-context/useInputContext"
 import useSnippetContext from '../../store/snippet-context/useSnippetContext'
-import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
-import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
+import useUpdateUserMetadata from "../../hooks/supabase/useUpdateUserMetadata"
+import useGetExistingSnippets from "../../hooks/useGetExistingSnippets"
 import toast from "react-hot-toast"
 
 const useOnSubmitMarkdownForm = ({reset}) => {

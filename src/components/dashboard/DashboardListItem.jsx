@@ -9,10 +9,10 @@ import useSnippetContext from "../../store/snippet-context/useSnippetContext";
 import MarkdownPreview from '../markdown-preview/MarkdownPreview'
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import ButtonAccent from "../buttons/ButtonAccent";
-import useHandleUse from "../dashboard-hooks/useHandleUse";
-import useHandleRename from "../dashboard-hooks/useHandleRename";
-import useHandleRemove from "../dashboard-hooks/useHandleRemove";
-import useHandlePreview from "../dashboard-hooks/useHandlePreview";
+import useHandleUse from "../../hooks/dashboard/useHandleUse";
+import useHandleRename from "../../hooks/dashboard/useHandleRename";
+import useHandleRemove from "../../hooks/dashboard/useHandleRemove";
+import useHandlePreview from "../../hooks/dashboard/useHandlePreview";
 
 const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls, setShowRenameControls}) => {
   const {loading} = useLoadingContext()

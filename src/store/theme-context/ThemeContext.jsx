@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react"
 import { light, dark } from './theme-aliases-map'
 import setInitialState from "../../utils/set-initial-state"
-import useLocalStorage from "../../utils/useLocalStorage"
+import useLocalStorage from "../../hooks/useLocalStorage"
 
 const ThemeContext = createContext()
 

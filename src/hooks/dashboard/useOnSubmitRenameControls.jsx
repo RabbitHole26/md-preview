@@ -1,5 +1,5 @@
-import useUpdateUserMetadata from "../../store/supabase-hooks/useUpdateUserMetadata"
-import useGetExistingSnippets from "../../utils/useGetExistingSnippets"
+import useUpdateUserMetadata from "../supabase/useUpdateUserMetadata"
+import useGetExistingSnippets from "../useGetExistingSnippets"
 import toast from "react-hot-toast"
 
 const useOnSubmitRenameControls = ({

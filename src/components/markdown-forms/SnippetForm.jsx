@@ -12,7 +12,7 @@ import ButtonCleanUp from "../buttons/ButtonCleanUp"
 import InputStyled from "../inputs/InputStyled"
 import SnippetFormTitleHelper from './SnippetFormTitleHelper'
 import useOnSubmitMarkdownForm from "./useOnSubmitMarkdownForm"
-import useHandleReset from "../../utils/useHandleReset"
+import useHandleReset from "../../hooks/useHandleReset"
 
 const SnippetForm = () => {
   const [selectedInputField, setSelectedInputField] = useState(false)

@@ -5,9 +5,9 @@ import InputStyled from "../inputs/InputStyled"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import ButtonAccent from '../buttons/ButtonAccent'
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
-import useOnSubmitRenameControls from "../dashboard-hooks/useOnSubmitRenameControls"
-import useHandleRename from "../dashboard-hooks/useHandleRename"
-import useApplyElementFocus from "../../utils/useApplyElementFocus"
+import useOnSubmitRenameControls from "../../hooks/dashboard/useOnSubmitRenameControls"
+import useHandleRename from "../../hooks/dashboard/useHandleRename"
+import useApplyElementFocus from "../../hooks/useApplyElementFocus"
 
 const DashboardRenameControls = ({
   snippet, 

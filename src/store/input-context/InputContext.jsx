@@ -5,7 +5,7 @@ import {
 } from "react";
 import setInitialState from "../../utils/set-initial-state";
 import markdownSample from "../../utils/markdown-sample";
-import useLocalStorage from "../../utils/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import generateStorageId from "./generate-storage-id";
 
 const InputContext = createContext()
