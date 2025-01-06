@@ -38,7 +38,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
 
   return (
     <div className="flex flex-col w-full justify-center" ref={divRef}>
-      <div className="flex flex-col md:flex-row md:min-h-[72px] gap-2 p-5 items-center w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row md:min-h-[72px] gap-2 p-5 items-center w-full">
 
         {/* snippet title */}
         <p className={`flex justify-center w-full text-lg tracking-wider ${theme === light ? 'snippet-title-shadow-light' : 'snippet-title-shadow-dark'}`}>
@@ -51,6 +51,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           <ButtonAccent
             className={`btn-xs lg:btn-sm w-[50px] ${(loading && snippetId === snippet.id) || showRenameControls[snippetId] || selectedSnippet === snippet.id ? 'btn-disabled' : ''}`}
             onClick={() => handleRemove(snippet.id)}
+            tooltip={'Remove'}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faTrash} />
           </ButtonAccent>
@@ -58,6 +59,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           <ButtonPrimary
             className={`btn-xs lg:btn-sm w-[50px] ${(loading && snippetId === snippet.id) || showRenameControls[snippetId] || selectedSnippet === snippet.id ? 'btn-disabled' : ''}`}
             onClick={() => handleRename(snippet.id)}
+            tooltip={'Rename'}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faPen} />
           </ButtonPrimary>
@@ -65,6 +67,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           <ButtonPrimary
             className={`btn-xs lg:btn-sm w-[50px] ${snippetPreview.id === snippet.id ? '' : 'opacity-50'}`}
             onClick={() => handlePreview(snippet.id)}
+            tooltip={'Preview'}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faEye} />
           </ButtonPrimary>
@@ -72,6 +75,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
           <ButtonPrimary
             className={`btn-xs lg:btn-sm w-[50px] ${(loading && snippetId === snippet.id) || showRenameControls[snippetId] ? 'btn-disabled' : ''}`}
             onClick={() => handleUse(snippet)}
+            tooltip={'Open in editor'}
           >
             <FontAwesomeIcon className="text-md lg:text-lg" icon={faRightToBracket} />
           </ButtonPrimary>
