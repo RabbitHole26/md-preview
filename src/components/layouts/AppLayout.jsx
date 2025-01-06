@@ -8,9 +8,11 @@ const AppLayout = ({children}) => {
 
   return (
     <div className='min-h-screen flex flex-col'>
-      <UnlockFeatureBanner />
-      <div className={authLoading ? 'opacity-20' : ''}>
-        <Navbar />
+      <div className='sticky top-0 z-50'>
+        <UnlockFeatureBanner />
+        <div className={authLoading ? 'opacity-20' : ''}>
+          <Navbar />
+        </div>
       </div>
       <div className='grow'>
         {children}
