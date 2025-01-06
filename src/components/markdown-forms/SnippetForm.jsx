@@ -108,6 +108,7 @@ const SnippetForm = () => {
                 className={`btn-md btn-circle ${!selectedSnippet ? 'btn-disabled' : ''}`}
                 classNameFa='text-lg'
                 onClick={() => handleReset(false)}
+                tooltip={'Clear selected snippet'}
               />
 
               {/* debugging buttons */}

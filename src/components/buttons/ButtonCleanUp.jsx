@@ -6,11 +6,12 @@ const ButtonCleanUp = ({
   className, 
   classNameFa, 
   onClick,
+  tooltip
 }) => {
   return (
     <div
       className="has-hover:tooltip has-hover:tooltip-accent z-40"
-      data-tip='Clear snippet'
+      data-tip={tooltip}
     >
       <button
         type={type}
