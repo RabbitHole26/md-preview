@@ -1,4 +1,4 @@
-import DashboardSidebar from "../dashboard/DashboardSidebar"
+import DashboardSidebar from "../components/dashboard/DashboardSidebar"
 
 const DashboardSettingsLayout = ({children}) => {
   return (

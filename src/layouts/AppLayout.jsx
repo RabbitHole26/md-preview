@@ -1,7 +1,7 @@
-import Navbar from '../navbar/Navbar'
-import Footer from '../footer/Footer'
-import useLoadingContext from '../../store/loading-context/useLoadingContext'
-import UnlockFeatureBanner from '../banners/UnlockFeatureBanner'
+import Navbar from '../components/navbar/Navbar'
+import Footer from '../components/footer/Footer'
+import useLoadingContext from '../store/loading-context/useLoadingContext'
+import UnlockFeatureBanner from '../components/banners/UnlockFeatureBanner'
 
 const AppLayout = ({children}) => {
   const {authLoading} = useLoadingContext()

@@ -4,7 +4,7 @@ import ErrorPage from "../error/ErrorPage"
 import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import DashboardSettings from "../../components/dashboard/DashboardSettings"
-import DashboardLayout from "../../components/layouts/DashboardLayout"
+import DashboardLayout from "../../layouts/DashboardLayout"
 
 const DashboardPage = () => {
   const {authLoading} = useLoadingContext()

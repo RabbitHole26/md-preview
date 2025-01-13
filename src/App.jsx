@@ -9,7 +9,7 @@ import AboutPage from './pages/about/AboutPage'
 import SignUpPage from './pages/signup/SignUpPage'
 import SignInPage from './pages/signin/SignInPage'
 import ErrorPage from './pages/error/ErrorPage'
-import AppLayout from './components/layouts/AppLayout'
+import AppLayout from './layouts/AppLayout'
 import './App.css'
 
 function App() {

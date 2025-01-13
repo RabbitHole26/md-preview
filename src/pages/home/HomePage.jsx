@@ -1,4 +1,4 @@
-import HomePageLayout from "../../components/layouts/HomePageLayout"
+import HomePageLayout from "../../layouts/HomePageLayout"
 import MarkdownEditor from '../../components/markdown-editor/MarkdownEditor'
 
 // * the homepage layout might be redundant after removal of a separate markdown preview element.

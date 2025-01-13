@@ -1,4 +1,4 @@
-import SnippetForm from "../markdown-forms/SnippetForm"
+import SnippetForm from "../components/markdown-forms/SnippetForm"
 
 const HomePageLayout = ({children}) => {
   return (

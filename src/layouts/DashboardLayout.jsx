@@ -1,4 +1,4 @@
-import DashboardControls from "../dashboard/DashboardControls"
+import DashboardControls from "../components/dashboard/DashboardControls"
 
 const DashboardLayout = ({children}) => {
   return (
