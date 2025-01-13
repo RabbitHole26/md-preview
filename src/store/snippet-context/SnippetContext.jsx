@@ -10,8 +10,6 @@ const SnippetProvider = ({children}) => {
 
   const storageKey = `selectedSnippet_${baseId}_${sessionId}`
 
-  sessionStorage.getItem(storageKey)
-
   const initialState = setInitialState(storageKey, null)
 
   const [selectedSnippet, setSelectedSnippet] = useState(initialState)
