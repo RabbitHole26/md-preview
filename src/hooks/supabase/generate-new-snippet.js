@@ -2,13 +2,13 @@
 import generateId from "../../utils/generate-id"
 
 const generateNewSnippet = (data, input) => {
-  const newSnipet = {
+  const newSnippet = {
     id: generateId(), 
     title: data.trim(), 
     body: input.body, 
     caretPosition: input.caretPosition
   }
-  return newSnipet
+  return newSnippet
 }
 
 export default generateNewSnippet
