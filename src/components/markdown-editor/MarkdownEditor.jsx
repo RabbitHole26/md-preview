@@ -84,7 +84,7 @@ const MarkdownInput = () => {
   }, [input, state.isComponentMounted])
 
   return (
-    <div className='mb-[100px]' data-color-mode={theme === light ? 'light' : 'dark'}>
+    <div className='mb-[100px] lg:mb-0' data-color-mode={theme === light ? 'light' : 'dark'}>
       <MDEditor
         ref={editorRef}
         value={input.body}
