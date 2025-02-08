@@ -8,7 +8,11 @@ const Notifications = () => {
 	return (
 		<Toaster
 			toastOptions={{
-				className: theme === light ? '' : 'bg-theme-dark text-font-dark',
+				// className: theme === light ? '' : 'bg-theme-dark text-font-dark',
+				style: {
+					backgroundColor: theme === light ? '' : 'rgba(23,18,18,1)',
+					color: theme === light ? '' : 'rgba(202,201,201,1)',
+				},
 				success: {
 					duration: 1500,
 				},
