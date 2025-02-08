@@ -16,6 +16,7 @@ export default {
       colors: {
         'theme-light': 'rgba(250,247,245,1)',
         'theme-dark': 'rgba(23,18,18,1)',
+        'font-dark': 'rgba(202,201,201,1)',
       },
       backgroundImage: {
         'radial-gradient-theme-light': 'radial-gradient(rgba(250,247,245,1) 50%, rgba(250,247,245,0) 100%)',

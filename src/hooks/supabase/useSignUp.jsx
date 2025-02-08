@@ -27,7 +27,7 @@ const useSignUp = () => {
         throw new Error(error)
 
       setAuthLoading(false)
-      toast.success(`You've signed up successfully!`, {duration: 3000}),
+      toast.success(`You've signed up successfully!`),
       navigate('/')
     } catch (error) {
       setAuthLoading(false)

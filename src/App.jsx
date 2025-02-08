@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { Toaster } from 'react-hot-toast'
 import useAuthContext from './store/auth-context/useAuthContext'
 import usePreviewContext from './store/preview-context/usePreviewContext'
 import HomePage from './pages/home/HomePage'
@@ -10,6 +9,7 @@ import SignUpPage from './pages/signup/SignUpPage'
 import SignInPage from './pages/signin/SignInPage'
 import ErrorPage from './pages/error/ErrorPage'
 import AppLayout from './layouts/AppLayout'
+import Notifications from './components/notifications/Notifications'
 import './App.css'
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <AppLayout>
-        <Toaster />
+        <Notifications />
         <Routes>
           <Route path='/' element={<HomePage />}/>
           <Route path='about' element={<AboutPage />}/>

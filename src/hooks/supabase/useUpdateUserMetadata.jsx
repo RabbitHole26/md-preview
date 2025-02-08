@@ -73,7 +73,7 @@ const useUpdateUserMetadata = () => {
         throw new Error(error)
 
       loadingState(false)
-      toast.success(toastMessage, {duration: 1000})
+      toast.success(toastMessage)
     } catch (error) {
       loadingState(false)
       // ! this condition might be unreliable if error message was changed by Supabase

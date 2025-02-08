@@ -21,7 +21,7 @@ const useSignIn = () => {
         throw new Error(error)
 
       setAuthLoading(false)
-      toast.success(`You've logged in successfully`, {duration: 3000}),
+      toast.success(`You've logged in successfully`),
       navigate('/dashboard')
     } catch (error) {
       setAuthLoading(false)
