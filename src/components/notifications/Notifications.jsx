@@ -1,9 +1,9 @@
 import { Toaster } from 'react-hot-toast'
-import { useTheme } from '../../store/theme-context/useThemeContext'
+import useThemeContext from '../../store/theme-context/useThemeContext'
 import { light } from '../../store/theme-context/theme-aliases-map'
 
 const Notifications = () => {
-	const {theme} = useTheme()
+	const {theme} = useThemeContext()
 
 	return (
 		<Toaster
