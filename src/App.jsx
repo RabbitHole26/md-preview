@@ -9,7 +9,7 @@ import SignUpPage from './pages/signup/SignUpPage'
 import SignInPage from './pages/signin/SignInPage'
 import ErrorPage from './pages/error/ErrorPage'
 import AppLayout from './layouts/AppLayout'
-import Notifications from './components/notifications/Notifications'
+import HotToast from './components/notifications/HotToast'
 import './App.css'
 
 function App() {
@@ -30,7 +30,8 @@ function App() {
   return (
     <div>
       <AppLayout>
-        <Notifications />
+        {/* <SignOutPrompt /> */}
+        <HotToast />
         <Routes>
           <Route path='/' element={<HomePage />}/>
           <Route path='about' element={<AboutPage />}/>
