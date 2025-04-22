@@ -6,7 +6,7 @@ import { LoadingProvider } from './store/loading-context/LoadingContext.jsx'
 import { PreviewProvider } from './store/preview-context/PreviewContext.jsx'
 import { SnippetProvider } from './store/snippet-context/SnippetContext.jsx'
 import { InputProvider } from './store/input-context/InputContext.jsx'
-import { StylingProvider } from './store/styling-context/StylingContext.jsx'
+import { VisibilityProvider } from './store/visibility-context/VisibilityContext.jsx'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -17,7 +17,7 @@ const getInitialThemeValue = document.querySelector('#html-element').dataset.the
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
-    <StylingProvider>
+    <VisibilityProvider>
       <InputProvider>
         <SnippetProvider>
           <PreviewProvider>
@@ -33,6 +33,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           </PreviewProvider>
         </SnippetProvider>
       </InputProvider>
-    </StylingProvider>
+    </VisibilityProvider>
   //</React.StrictMode>
 )

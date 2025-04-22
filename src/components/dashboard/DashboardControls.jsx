@@ -2,26 +2,27 @@ import { useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
 import { light, dark } from '../../store/theme-context/theme-aliases-map'
-import ButtonPrimary from '../buttons/ButtonPrimary'
-import ButtonAccent from '../buttons/ButtonAccent'
-import ButtonCleanUp from '../buttons/ButtonCleanUp'
-import useSignOut from '../../hooks/supabase/useSignOut'
 import useAuthContext from '../../store/auth-context/useAuthContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import useLoadingContext from '../../store/loading-context/useLoadingContext'
 import useSnippetContext from '../../store/snippet-context/useSnippetContext'
+import useVisibilityContext from '../../store/visibility-context/useVisibilityContext'
 import useUpdateUserMetadata from '../../hooks/supabase/useUpdateUserMetadata'
 import useHandleReset from '../../hooks/useHandleReset'
 import LinkCustom from '../link-custom/LinkCustom'
+import ButtonPrimary from '../buttons/ButtonPrimary'
+import ButtonAccent from '../buttons/ButtonAccent'
+import ButtonCleanUp from '../buttons/ButtonCleanUp'
 
 const DashboardControls = () => {
   const {session} = useAuthContext()
   const {theme} = useThemeContext()
   const {syncLoading} = useLoadingContext()
   const {selectedSnippet} = useSnippetContext()
-  const {handleSignOut} = useSignOut()
+  // const {handleSignOut} = useSignOut()
   const {updateUserMetadata} = useUpdateUserMetadata()
   const {handleReset} = useHandleReset()
+  const {setSingOutPromptVisible} = useVisibilityContext()
   const location = useLocation()
 
   return (
@@ -34,10 +35,15 @@ const DashboardControls = () => {
         </h2>
         <ButtonPrimary 
           className='btn-xs sm:btn-sm' 
-          onClick={() => handleSignOut()}
+          // onClick={() => handleSignOut()}
+          onClick={() => setSingOutPromptVisible(prev => ({
+            ...prev,
+            visible: true
+          }))}
         >
           Sign out
         </ButtonPrimary>
+        {/* <ButtonSignOut className='btn-xs sm:btn-sm' /> */}
       </div>
 
       {/* buttons container */}
