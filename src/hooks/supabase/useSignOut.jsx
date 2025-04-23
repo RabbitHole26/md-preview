@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import useSnippetContext from '../../store/snippet-context/useSnippetContext'
+import useVisibilityContext from "../../store/visibility-context/useVisibilityContext"
 import supabaseClient from "../../store/supabase-client/supabase-client"
 import removeJwtToken from "./remove-jwt-token"
 
@@ -9,9 +10,9 @@ const useSignOut = () => {
   const navigate = useNavigate()
   const {setAuthLoading} = useLoadingContext()
   const {setSelectedSnippet} = useSnippetContext()
+  const {setSingOutPromptVisible} = useVisibilityContext()
 
   const handleSignOut = async () => {
-
     setAuthLoading(true)
     try {
       // * removing JWT token manually to prevent auth errors across app instances
@@ -36,8 +37,15 @@ const useSignOut = () => {
       console.log('Signout error:', error.message)
     }
   }
+
+  const triggerSignOutPrompt = () => {
+    setSingOutPromptVisible(prev => ({
+      ...prev,
+      visible: true
+    }))
+  }
   
-  return {handleSignOut}
+  return {handleSignOut, triggerSignOutPrompt}
 }
 
 export default useSignOut

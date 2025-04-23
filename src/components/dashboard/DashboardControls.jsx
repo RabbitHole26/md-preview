@@ -6,9 +6,9 @@ import useAuthContext from '../../store/auth-context/useAuthContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import useLoadingContext from '../../store/loading-context/useLoadingContext'
 import useSnippetContext from '../../store/snippet-context/useSnippetContext'
-import useVisibilityContext from '../../store/visibility-context/useVisibilityContext'
 import useUpdateUserMetadata from '../../hooks/supabase/useUpdateUserMetadata'
 import useHandleReset from '../../hooks/useHandleReset'
+import useSignOut from '../../hooks/supabase/useSignOut'
 import LinkCustom from '../link-custom/LinkCustom'
 import ButtonPrimary from '../buttons/ButtonPrimary'
 import ButtonAccent from '../buttons/ButtonAccent'
@@ -19,10 +19,9 @@ const DashboardControls = () => {
   const {theme} = useThemeContext()
   const {syncLoading} = useLoadingContext()
   const {selectedSnippet} = useSnippetContext()
-  // const {handleSignOut} = useSignOut()
+  const {triggerSignOutPrompt} = useSignOut()
   const {updateUserMetadata} = useUpdateUserMetadata()
   const {handleReset} = useHandleReset()
-  const {setSingOutPromptVisible} = useVisibilityContext()
   const location = useLocation()
 
   return (
@@ -35,15 +34,10 @@ const DashboardControls = () => {
         </h2>
         <ButtonPrimary 
           className='btn-xs sm:btn-sm' 
-          // onClick={() => handleSignOut()}
-          onClick={() => setSingOutPromptVisible(prev => ({
-            ...prev,
-            visible: true
-          }))}
+          onClick={() => triggerSignOutPrompt()}
         >
           Sign out
         </ButtonPrimary>
-        {/* <ButtonSignOut className='btn-xs sm:btn-sm' /> */}
       </div>
 
       {/* buttons container */}

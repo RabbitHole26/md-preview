@@ -1,3 +1,4 @@
+import useSignOut from "../../hooks/supabase/useSignOut"
 import ButtonTheme from "../buttons/ButtonTheme"
 import useAuthContext from "../../store/auth-context/useAuthContext"
 import daisyUiRemoveFocus from "../../utils/daisyUi-remove-focus"
@@ -5,6 +6,7 @@ import LinkCustom from '../link-custom/LinkCustom'
 
 const Navbar = () => {
   const {session} = useAuthContext()
+  const {triggerSignOutPrompt} = useSignOut()
 
   const handleClick = () => {
     daisyUiRemoveFocus()
@@ -21,13 +23,14 @@ const Navbar = () => {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52">
 
             {!session &&
-              <>
-                <li onClick={handleClick}><LinkCustom to='/login'>Log in</LinkCustom></li>
-              </>
+              <li onClick={handleClick}><LinkCustom to='/login'>Log in</LinkCustom></li>
             }
 
             {session &&
-              <li onClick={handleClick}><LinkCustom to='/dashboard'>Dashboard</LinkCustom></li>
+              <>
+                <li onClick={handleClick}><LinkCustom to='/dashboard'>Dashboard</LinkCustom></li>
+                <li onClick={() => triggerSignOutPrompt()}><span>Sign Out</span></li>
+              </>
             }
           </ul>
         </div>
