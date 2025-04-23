@@ -1,13 +1,15 @@
+import useVisibilityContext from "../../store/visibility-context/useVisibilityContext"
 import daisyUiRemoveFocus from "../../utils/daisyUi-remove-focus"
 import LinkCustom from "../link-custom/LinkCustom"
 
 const DashboardSettingsAside = () => {
+  const {signOutPromptVisible} = useVisibilityContext()
   const handleClick = () => {
-  daisyUiRemoveFocus()
+    daisyUiRemoveFocus()
   }
 
   return (
-    <div className="drawer md:drawer-open z-50">
+    <div className={`drawer md:drawer-open ${signOutPromptVisible ? 'z-49' : 'z-50'}`}>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         <label htmlFor="my-drawer-2" className="drawer-button md:hidden hover:text-primary underline">More settings</label>

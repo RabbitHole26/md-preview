@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
-import { light } from "../../store/theme-context/theme-aliases-map"
 import InputStyled from "../inputs/InputStyled"
 import useThemeContext from "../../store/theme-context/useThemeContext"
 import ButtonPrimary from "../buttons/ButtonPrimary"
@@ -11,7 +10,7 @@ import useAuthContext from "../../store/auth-context/useAuthContext"
 import useUpdateUserMetadata from "../../hooks/supabase/useUpdateUserMetadata"
 
 const ChangeDisplayNameForm = () => {
-  const {theme} = useThemeContext()
+  const {themeLight} = useThemeContext()
   const {loading} = useLoadingContext()
   const {session} = useAuthContext()
   const {updateUserMetadata} = useUpdateUserMetadata()
@@ -32,9 +31,9 @@ const ChangeDisplayNameForm = () => {
   }
 
   return (
-    <form className={`flex flex-col items-center rounded-md ${theme === light ? 'bg-neutral-200' : 'bg-stone-900'}`} onSubmit={handleSubmit(onSubmit)}>
+    <form className={`flex flex-col items-center rounded-md ${themeLight ? 'bg-neutral-200' : 'bg-stone-900'}`} onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col w-full">
-        <p className={`text-center font-bold rounded-t-md w-full p-1 ${theme === light ? 'bg-neutral-300' : 'bg-neutral-800'}`}>Change Display Name</p>
+        <p className={`text-center font-bold rounded-t-md w-full p-1 ${themeLight ? 'bg-neutral-300' : 'bg-neutral-800'}`}>Change Display Name</p>
         <div className="flex justify-center mt-3">
 
           {/* new display name */}

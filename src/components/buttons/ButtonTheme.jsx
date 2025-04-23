@@ -1,15 +1,14 @@
 import useThemeContext from "../../store/theme-context/useThemeContext";
-import { light } from "../../store/theme-context/theme-aliases-map";
 
 const ButtonTheme = () => {
-  const { theme, toggleTheme } = useThemeContext()
+  const {toggleTheme, themeLight} = useThemeContext()
 
   return (
     <div className="has-hover:tooltip has-hover:tooltip-left mr-4 pl-1" data-tip='change theme'>
       <label className="swap swap-rotate transition hover:scale-110">
         {/* this hidden checkbox controls the state */}
         <input
-          defaultChecked={theme === light} // defaultCheck will only be true if 'theme' value is light
+          defaultChecked={themeLight} // defaultCheck will only be true if 'theme' value is light
           onClick={toggleTheme}
           type="checkbox"
           className="theme-controller"

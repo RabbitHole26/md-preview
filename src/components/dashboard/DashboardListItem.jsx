@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faRightToBracket, faPen, faEye } from "@fortawesome/free-solid-svg-icons";
-import { light } from "../../store/theme-context/theme-aliases-map";
 import useLoadingContext from "../../store/loading-context/useLoadingContext";
 import useThemeContext from "../../store/theme-context/useThemeContext";
 import usePreviewContext from "../../store/preview-context/usePreviewContext";
@@ -18,7 +17,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
   const {loading} = useLoadingContext()
   const {selectedSnippet} = useSnippetContext()
   const {snippetPreview} = usePreviewContext()
-  const {theme} = useThemeContext()
+  const {themeLight} = useThemeContext()
   const {handleUse} = useHandleUse()
   const {handlePreview} = useHandlePreview()
   const {handleRemove} = useHandleRemove({setSnippetId})
@@ -41,7 +40,7 @@ const DashboardListItem = ({snippet, snippetId, setSnippetId, showRenameControls
       <div className="flex flex-col md:flex-row md:min-h-[72px] gap-2 p-5 items-center w-full">
 
         {/* snippet title */}
-        <p className={`flex justify-center w-full text-lg tracking-wider ${theme === light ? 'snippet-title-shadow-light' : 'snippet-title-shadow-dark'}`}>
+        <p className={`flex justify-center w-full text-lg tracking-wider ${themeLight ? 'snippet-title-shadow-light' : 'snippet-title-shadow-dark'}`}>
           {snippet.title}
         </p>
 

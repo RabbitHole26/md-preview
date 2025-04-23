@@ -1,16 +1,15 @@
 import { Toaster } from 'react-hot-toast'
 import useThemeContext from '../../store/theme-context/useThemeContext'
-import { light } from '../../store/theme-context/theme-aliases-map'
 
 const HotToast = () => {
-	const {theme} = useThemeContext()
+	const {themeLight} = useThemeContext()
 
 	return (
 		<Toaster
 			toastOptions={{
 				style: {
-					backgroundColor: theme === light ? '' : 'rgba(23,18,18,1)',
-					color: theme === light ? '' : 'rgba(202,201,201,1)',
+					backgroundColor: themeLight ? '' : 'rgba(23,18,18,1)',
+					color: themeLight ? '' : 'rgba(202,201,201,1)',
 				},
 				success: {
 					duration: 1500,

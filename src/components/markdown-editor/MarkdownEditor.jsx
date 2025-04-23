@@ -8,7 +8,6 @@ import {
   SET_editorHeight,
   SET_editorCommands
 } from "./reducer-action-types"
-import { light } from '../../store/theme-context/theme-aliases-map'
 import useInputContext from '../../store/input-context/useInputContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import MDEditor from '@uiw/react-md-editor'
@@ -17,7 +16,7 @@ import rehypeSanitize from "rehype-sanitize"
 const MarkdownInput = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const {input, setInput} = useInputContext()
-  const {theme} = useThemeContext()
+  const {themeLight} = useThemeContext()
   const editorRef = useRef(null)
 
   // ! '@uiw/react-md-editor' doesn't expose the 'event' object for function assigned to 'onChange' prop.
@@ -84,7 +83,7 @@ const MarkdownInput = () => {
   }, [input, state.isComponentMounted])
 
   return (
-    <div className='mb-[100px]' data-color-mode={theme === light ? 'light' : 'dark'}>
+    <div className='mb-[100px]' data-color-mode={themeLight ? 'light' : 'dark'}>
       <MDEditor
         ref={editorRef}
         value={input.body}

@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
-import { light, dark } from '../../store/theme-context/theme-aliases-map'
 import useAuthContext from '../../store/auth-context/useAuthContext'
 import useThemeContext from '../../store/theme-context/useThemeContext'
 import useLoadingContext from '../../store/loading-context/useLoadingContext'
@@ -16,7 +15,7 @@ import ButtonCleanUp from '../buttons/ButtonCleanUp'
 
 const DashboardControls = () => {
   const {session} = useAuthContext()
-  const {theme} = useThemeContext()
+  const {themeLight, themeDark} = useThemeContext()
   const {syncLoading} = useLoadingContext()
   const {selectedSnippet} = useSnippetContext()
   const {triggerSignOutPrompt} = useSignOut()
@@ -25,7 +24,7 @@ const DashboardControls = () => {
   const location = useLocation()
 
   return (
-    <div className={`${theme === light ? 'bg-neutral-200' : 'bg-stone-900'}`}>
+    <div className={`${themeLight ? 'bg-neutral-200' : 'bg-stone-900'}`}>
       
       {/* welcome message and signout button */}
       <div className="flex justify-between my-6 md:my-8 xl:my-10 mx-[5%] 400px-custom:mx-[10%] sm:mx-[20%] xl:mx-[25%] 2xl:mx-[31%]">
@@ -42,7 +41,7 @@ const DashboardControls = () => {
 
       {/* buttons container */}
       <div className='flex justify-center'>
-        <div className={`flex gap-2 330px-custom:gap-4 400px-custom:gap-6 rounded-t-xl px-1 py-4 330px-custom:px-4 sm:px-10 w-fit ${theme === dark ? 'bg-theme-dark' : 'bg-theme-light'}`}>
+        <div className={`flex gap-2 330px-custom:gap-4 400px-custom:gap-6 rounded-t-xl px-1 py-4 330px-custom:px-4 sm:px-10 w-fit ${themeDark ? 'bg-theme-dark' : 'bg-theme-light'}`}>
 
           {/* settings and snippets buttons*/}
           <div className='flex gap-1 330px-custom:gap-2'>

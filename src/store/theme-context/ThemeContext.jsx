@@ -23,11 +23,16 @@ const ThemeProvider = ({children, initialThemeValueHTML}) => {
     )
   }
 
+  const themeLight = theme === light
+  const themeDark = theme === dark
+
   return (
     <ThemeContext.Provider value={{
       theme, 
       setTheme,
-      toggleTheme
+      toggleTheme,
+      themeLight,
+      themeDark
     }}>
       {children}
     </ThemeContext.Provider>

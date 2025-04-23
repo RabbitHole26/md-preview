@@ -1,4 +1,3 @@
-import { light } from "../../store/theme-context/theme-aliases-map"
 import useAuthContext from '../../store/auth-context/useAuthContext'
 import useThemeContext from "../../store/theme-context/useThemeContext"
 import ButtonPrimary from "../../components/buttons/ButtonPrimary"
@@ -6,7 +5,7 @@ import LinkCustom from "../../components/link-custom/LinkCustom"
 
 const AboutPage = () => {
   const {session} = useAuthContext()
-  const {theme} = useThemeContext()
+  const {themeLight} = useThemeContext()
 
   return (
     <div className="flex flex-col gap-8 sm:gap-[60px] mx-3 pt-5 pb-20 items-center sm:mx-[10%] lg:mx-[20%] 2xl:mx-[30%]">
@@ -45,7 +44,7 @@ const AboutPage = () => {
           )
         }
       </div>
-      <LinkCustom className={`sticky bottom-0 p-6 rounded-btn ${theme === light ? 'bg-radial-gradient-theme-light' : 'bg-radial-gradient-theme-dark'}`} to='/'>
+      <LinkCustom className={`sticky bottom-0 p-6 rounded-btn ${themeLight ? 'bg-radial-gradient-theme-light' : 'bg-radial-gradient-theme-dark'}`} to='/'>
         <ButtonPrimary>
           Back to homepage
         </ButtonPrimary>
