@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import DashboardSnippets from "../../components/dashboard/DashboardSnippets"
 import ErrorPage from "../error/ErrorPage"
-import LoadingSpinner from "../../components/loading-spinner/LoadingSpinner"
 import useLoadingContext from "../../store/loading-context/useLoadingContext"
 import DashboardSettings from "../../components/dashboard/DashboardSettings"
 import DashboardLayout from "../../layouts/DashboardLayout"
@@ -23,9 +22,6 @@ const DashboardPage = () => {
             </div>
           </DashboardLayout>
         </div>
-      }
-      {authLoading &&
-        <LoadingSpinner />
       }
     </div>
   )

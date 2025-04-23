@@ -3,7 +3,6 @@ import useSignOut from "../../hooks/supabase/useSignOut"
 import useVisibilityContext from "../../store/visibility-context/useVisibilityContext"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 import ButtonSecondary from "../buttons/ButtonSecondary"
-// import ButtonSignOut from "../buttons/ButtonSignOut"
 
 const SignOutPrompt = () => {
   const {signOutPromptVisible, setSingOutPromptVisible} = useVisibilityContext()
@@ -20,11 +19,11 @@ const SignOutPrompt = () => {
         }))
       }, 100)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signOutPromptVisible.visible])
 
   return (
-    <div 
-      // className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-6 rounded-md bg-base-200 shadow-md"
+    <div
       className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 rounded-md bg-base-200 shadow-md transition-opacity duration-200 ${
         signOutPromptVisible.visible ? 'z-50' : '-z-50'} ${
         signOutPromptVisible.opaque ? 'opacity-100': 'opacity-0'}
@@ -68,7 +67,6 @@ const SignOutPrompt = () => {
         >
           Sign Out
         </ButtonPrimary>
-        {/* <ButtonSignOut className={btnClass}/> */}
       </div>
     </div>
   )
